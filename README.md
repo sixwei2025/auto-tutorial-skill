@@ -3,6 +3,22 @@
 > 🔴 **作者：袁六伟 · 台州汇芯**｜一人 AI 公司创业者，6000+ 学员，100+ 客户，得到/华为分享老师
 > 📮 更多 AI 视频与自动化实战，关注 **公众号 / 视频号：袁六伟**
 
+## 效果展示
+
+<p align="center"><img src="assets/showcase/demo-zoom.gif" width="360" alt="Skill 上架实操界面动态演示"></p>
+
+<p align="center"><sub>教学演示轨：真机界面边操作边讲，字幕跟着旁白走（Skill 上架变现成片截取）</sub></p>
+
+| 开场利益钩子 | 真实界面操作 | 一句话出片 |
+|:---:|:---:|:---:|
+| <img src="assets/showcase/01-hook.jpg" width="240"> | <img src="assets/showcase/02-ui-steps.jpg" width="240"> | <img src="assets/showcase/03-teach-demo.jpg" width="240"> |
+| 竖屏种草开场：四个 Skill 审核中，卖点直给「Skill 也能上架卖钱」 | 跟着做：开放平台打包 zip 上传入口，根目录要有 SKILL.md | 横屏教学成片：一句话做小程序，先看结果再拆步骤 |
+| **首帧封面 3:4** | **结果展示** | **真实搜 Skill** |
+| <img src="assets/showcase/04-cover-3x4.jpg" width="240"> | <img src="assets/showcase/05-result.jpg" width="240"> | <img src="assets/showcase/06-search-skill.jpg" width="240"> |
+| 成片封面就是第一帧：Skill 上架变现 | 市场上已有人在卖，付费示例一眼看懂 | 技能页签真机搜索，红框标出要点再配旁白 |
+
+> 以上画面均来自本 Skill 实操成片（WorkBuddy 教程），禁止 AI 编造界面。界面版权属 WorkBuddy；成片由作者本人用本 Skill 产出。
+
 ## 一句话
 
 **选题进来 → 完全自动出教程。** 用户不填表、不学剪辑；对 agent 说一句「用自动化教程 skill 做一条 WorkBuddy XXX 教程」，即可走完 steps → 真机截图/录屏 → 旁白 → 成片/操作指南。
