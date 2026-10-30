@@ -1,4 +1,0 @@
-interface:
-  display_name: "自动化教程"
-  short_description: "选题进 → 完全自动出教程：steps / 截图录屏 / 旁白 / 三轨成品；主用 WorkBuddy"
-  default_prompt: "使用 $auto-tutorial 做一条 WorkBuddy 教程：真实实操取 before+after 写入 steps.json，齐图（可选过稿）后再定稿旁白与 fullscreen 渲染；可用 build_steps_html 导出指南。痛点利益与真实成品开头、全屏截图推拉、红白动态图解及统一配音；截图动态轨禁止花录、任何录屏及先录后抽帧；跟着做选题默认教学演示轨。"

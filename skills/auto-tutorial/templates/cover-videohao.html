@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" /><meta name="color-scheme" content="dark">
+<title>{{TITLE}} · Cover VideoHao</title>
+<style>
+/* 视频号封面（暗夜科技风 · 2026-10-30 第 6 版）
+   深空蓝黑底 + 顶部红胶囊「WorkBuddy实操」+ 白/柠檬金超粗大字 + 下方矢量图形。
+   🔴 不用产品截图：底图一律交给 templates/motifs/ 里的纯 SVG 图形。 */
+@font-face{
+  font-family:'NSSC';
+  src:url('file://{{FONT}}') format('truetype-variations'),
+      url('file://{{FONT}}') format('truetype');
+  font-weight:100 900;
+  font-display:block;
+}
+:root{
+  --bg:{{BG}}; --ink:{{INK}}; --gold:{{ACCENT}}; --gold-deep:{{ACCENT_DEEP}};
+  --badge-bg:{{BADGE_BG}};
+  --font:'NSSC',"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --cv-w:{{CV_W}}px; --cv-h:{{CV_H}}px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+
+.cover{width:var(--cv-w);height:var(--cv-h);position:relative;overflow:hidden;
+  background:var(--bg);display:flex;flex-direction:column;}
+
+/* ---------- 背景：深空渐变 + 蓝光 + 星点，全部铺到四边 ---------- */
+.sky{position:absolute;inset:0;z-index:0;
+  background:
+    radial-gradient(120% 70% at 8% -14%, rgba(38,104,235,.42) 0%, rgba(10,20,45,0) 58%),
+    radial-gradient(90% 60% at 106% 6%, rgba(20,72,180,.34) 0%, rgba(8,16,38,0) 62%),
+    radial-gradient(130% 62% at 50% 112%, rgba(28,116,255,.40) 0%, rgba(6,12,28,0) 66%),
+    linear-gradient(180deg,#0A1324 0%, #070C19 46%, #04070F 100%);
+}
+/* 星点：多层极小径向渐变硬点，避免引入外部图片 */
+.sky::before{content:"";position:absolute;inset:0;opacity:.55;
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 14%, rgba(255,255,255,.85), transparent 100%),
+    radial-gradient(1.4px 1.4px at 27% 8%, rgba(255,255,255,.6), transparent 100%),
+    radial-gradient(1.8px 1.8px at 44% 19%, rgba(200,225,255,.7), transparent 100%),
+    radial-gradient(1.3px 1.3px at 62% 7%, rgba(255,255,255,.5), transparent 100%),
+    radial-gradient(1.7px 1.7px at 78% 15%, rgba(255,255,255,.75), transparent 100%),
+    radial-gradient(1.4px 1.4px at 91% 9%, rgba(200,225,255,.55), transparent 100%),
+    radial-gradient(1.5px 1.5px at 6% 33%, rgba(255,255,255,.5), transparent 100%),
+    radial-gradient(1.7px 1.7px at 96% 36%, rgba(255,255,255,.6), transparent 100%),
+    radial-gradient(1.3px 1.3px at 18% 47%, rgba(255,255,255,.4), transparent 100%),
+    radial-gradient(1.6px 1.6px at 84% 52%, rgba(255,255,255,.45), transparent 100%),
+    radial-gradient(1.4px 1.4px at 34% 26%, rgba(255,255,255,.55), transparent 100%),
+    radial-gradient(1.5px 1.5px at 70% 29%, rgba(255,255,255,.5), transparent 100%);
+  background-repeat:no-repeat;}
+/* 顶部一道细金线（科技感锚点，不出白边） */
+.sky::after{content:"";position:absolute;left:0;right:0;top:0;height:5px;
+  background:linear-gradient(90deg,transparent,rgba(255,214,90,.9) 22%,rgba(255,255,255,.95) 50%,rgba(255,214,90,.9) 78%,transparent);
+  opacity:.85;}
+
+/* ---------- 顶部红胶囊 ---------- */
+.top{position:relative;z-index:3;padding:{{PAD_Y}}px {{PAD_X}}px 0;
+  display:flex;justify-content:center;}
+.badge{display:inline-flex;align-items:center;gap:10px;
+  background:var(--badge-bg);color:#fff;font-weight:800;
+  font-size:40px;letter-spacing:.01em;line-height:1;
+  padding:22px 46px 24px;border-radius:999px;white-space:nowrap;
+  box-shadow:0 10px 34px rgba(210,40,32,.42), inset 0 1px 0 rgba(255,255,255,.28);}
+
+/* ---------- 大字 ---------- */
+.title{position:relative;z-index:3;padding:0 40px;
+  margin-top:34px;flex:0 0 auto;
+  font-weight:900;font-size:{{TITLE_SIZE}}px;line-height:1.10;letter-spacing:0;
+  font-variation-settings:'wght' 900;}
+.title .line{display:block;white-space:nowrap;width:fit-content;max-width:100%;
+  margin:0 auto;}
+/* 白字：轻微蓝调冷光，压在暗底上更立体 */
+.title .white{color:#FFFFFF;
+  text-shadow:0 6px 0 rgba(0,0,0,.35), 0 14px 44px rgba(0,0,0,.7), 0 0 90px rgba(70,150,255,.22);}
+/* 金字：渐变描金，缩到 160px 还是一块亮色，最抓眼 */
+.title .gold{
+  background:linear-gradient(178deg,#FFFDE8 0%,#FFF480 28%,#FFD62E 64%,#F2A80F 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 6px 0 rgba(0,0,0,.42)) drop-shadow(0 16px 46px rgba(0,0,0,.72))
+         drop-shadow(0 0 60px rgba(255,190,60,.30));}
+
+/* ---------- 矢量图形区（不用截图） ---------- */
+.art{position:relative;z-index:2;flex:1 1 auto;min-height:440px;
+  margin-top:10px;display:flex;align-items:center;justify-content:center;
+  padding:0 {{PAD_X}}px 24px;}
+.art svg{width:100%;height:100%;max-height:100%;display:block;overflow:visible;}
+.art img{width:100%;height:100%;object-fit:contain;display:block;opacity:.92;}
+
+/* 四边压角暗影，模拟打光，把视线收到中间 */
+.vignette{position:absolute;inset:0;z-index:4;pointer-events:none;
+  background:radial-gradient(120% 85% at 50% 42%, rgba(0,0,0,0) 46%, rgba(0,0,0,.42) 100%);}
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="sky"></div>
+  <!--BLOCK:badge-->
+  <div class="top"><div class="badge">{{BADGE}}</div></div>
+  <!--/BLOCK:badge-->
+  <h1 class="title">{{TITLE_HTML}}</h1>
+  <div class="art">{{ART}}</div>
+  <div class="vignette"></div>
+</div>
+<script>
+(function(){
+function autofit(){
+  var t = document.querySelector('.title');
+  if(!t) return;
+  var lns = t.querySelectorAll('.line');
+  var box = ((t.clientWidth || 1080) - 80) * 0.94;   // 80 = 左右各 40px 内边距
+  var s = parseFloat(getComputedStyle(t).fontSize), floor = 88, guard = 0;
+  var maxH = (t.parentElement ? t.parentElement.clientHeight : 1440) * 0.375;  // 大字最多占画幅 37.5%，剩下都留给矢量图形
+  function tooWide(){
+    for (var i=0;i<lns.length;i++){ if (lns[i].scrollWidth > box + 1) return true; }
+    return false;
+  }
+  function tooTall(){ return t.scrollHeight > maxH; }
+  // 先往上放：字不满宽就没有压场感（短文案尤其明显）
+  while (!tooWide() && !tooTall() && s < 560 && guard++ < 220){ s += 3; t.style.fontSize = s + 'px'; }
+  guard = 0;
+  // 一旦顶到边界就回收，保证两行都在框内且不裁切
+  while ((tooWide() || tooTall()) && s > floor && guard++ < 260){ s -= 2; t.style.fontSize = s + 'px'; }
+}
+/* 必须等字体真正加载完再量：@font-face 是异步的，提前量会用回退字体算出偏大的字号 */
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(function(){ autofit(); setTimeout(autofit, 60); });
+} else {
+  window.addEventListener('load', function(){ autofit(); });
+}
+})();
+</script>
+</body>
+</html>

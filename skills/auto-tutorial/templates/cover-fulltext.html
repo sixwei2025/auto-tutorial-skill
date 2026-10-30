@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" /><meta name="color-scheme" content="light">
+<title>{{TITLE}} · Cover Full</title>
+<style>
+/* 纯文字满幅封面：整幅一种底色铺满四边，只有大字和白线，没有任何截图卡片。
+   目标：缩到 160px 宽仍能一眼读出主标题。 */
+:root{
+  --bg:{{BG}}; --ink:{{INK}}; --ink-soft:{{INK_SOFT}}; --line:{{LINE}};
+  --font:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,monospace;
+  --cv-w:{{CV_W}}px; --cv-h:{{CV_H}}px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;}
+.cover{width:var(--cv-w);height:var(--cv-h);position:relative;overflow:hidden;
+  background:var(--bg);padding:{{PAD_Y}}px {{PAD_X}}px;display:flex;flex-direction:column;}
+.top{display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:16px;border-bottom:3px solid var(--ink);}
+.kicker{font-family:var(--mono);font-size:27px;letter-spacing:.13em;text-transform:uppercase;
+  font-weight:700;color:var(--ink);}
+.index{font-family:var(--mono);font-size:22px;letter-spacing:.13em;color:var(--ink-soft);}
+.mid{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0;}
+.title{font-weight:900;font-size:{{TITLE_SIZE}}px;line-height:.98;letter-spacing:-.055em;
+  color:var(--ink);}
+.title .line{display:block;white-space:nowrap;width:fit-content;max-width:100%;}
+.title .accent{color:var(--ink);}
+.title .brand{display:block;font-size:.40em;line-height:1.14;letter-spacing:.015em;color:var(--ink-soft);margin-bottom:.10em;font-weight:700;}
+.sub{font-weight:700;font-size:{{SUB_SIZE}}px;line-height:1.2;letter-spacing:.01em;
+  color:var(--ink);margin-top:26px;opacity:.95;}
+.sub .mark{color:var(--bg);background:var(--ink);padding:1px 16px 6px;border-radius:3px;}
+.foot{margin-top:auto;padding-top:18px;border-top:3px solid var(--line);
+  display:flex;justify-content:space-between;align-items:baseline;gap:18px;
+  font-family:var(--mono);font-size:25px;letter-spacing:.05em;color:var(--ink);}
+.foot .val{font-weight:800;white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="cover">
+  <!--BLOCK:top-->
+  <div class="top">
+    <div class="kicker">{{KICKER}}</div>
+    <div class="index">{{INDEX}}</div>
+  </div>
+  <!--/BLOCK:top-->
+  <div class="mid">
+    <h1 class="title">{{TITLE_HTML}}</h1>
+    <!--BLOCK:sub-->
+    <p class="sub">{{SUB_HTML}}</p>
+    <!--/BLOCK:sub-->
+  </div>
+  <!--BLOCK:foot-->
+  <div class="foot">
+    <span>{{FOOT_L}}</span>
+    <span class="val">{{FOOT_R}}</span>
+  </div>
+  <!--/BLOCK:foot-->
+</div>
+<script>
+(function autofit(){
+  var t = document.querySelector('.title');
+  if(!t) return;
+  var s = parseFloat(getComputedStyle(t).fontSize), floor = s*0.42, box = (t.clientWidth || 900)*0.96;
+  var ls = t.querySelectorAll('.line'), guard = 0;
+  function over(){
+    if(!ls.length) return t.scrollWidth > box + 2;
+    for(var i=0;i<ls.length;i++){ if(ls[i].scrollWidth > box + 2) return true; }
+    return false;
+  }
+  while((over() || t.scrollHeight > s*2.25) && s > floor && guard++ < 120){
+    s -= 3; t.style.fontSize = s + 'px';
+  }
+})();
+</script>
+</body>
+</html>

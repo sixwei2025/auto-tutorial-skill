@@ -1,41 +1,44 @@
-# 自动化教程 Skill（auto-tutorial）
+# 自动化教程 Skill
 
 > 🔴 **作者：袁六伟 · 台州汇芯**｜一人 AI 公司创业者，6000+ 学员，100+ 客户，得到/华为分享老师
 > 📮 更多 AI 视频与自动化实战，关注 **公众号 / 视频号：袁六伟**
 
 ## 效果展示
 
-<p align="center"><img src="assets/showcase/demo-zoom.gif" width="360" alt="Skill 上架实操界面动态演示"></p>
+以下画面均来自本 Skill（WorkBuddy 名：`可视化教程视频`，封面规范第 6 版）**今天实操成片**，禁止 AI 编造界面。界面版权属 WorkBuddy；成片由作者本人用本 Skill 产出。
 
-<p align="center"><sub>教学演示轨：真机界面边操作边讲，字幕跟着旁白走（Skill 上架变现成片截取）</sub></p>
+<p align="center"><img src="assets/showcase/demo-motion.gif" width="480" alt="可视化教程成片动态抽帧：字幕与讲解面板"></p>
 
-| 开场利益钩子 | 真实界面操作 | 一句话出片 |
+<p align="center"><sub>成片动态：讲解面板 + 底部字幕（截取自《做视频，必须 6 个 skill》2026-10-30 成片）</sub></p>
+
+### 封面（第 6 版：深空底 + 红胶囊 + 思源黑体 900 + 矢量图形）
+
+| 做视频必装 6 个 skill | 教师篇：20 分钟出全套教案 | 一句话做小程序 |
 |:---:|:---:|:---:|
-| <img src="assets/showcase/01-hook.jpg" width="240"> | <img src="assets/showcase/02-ui-steps.jpg" width="240"> | <img src="assets/showcase/03-teach-demo.jpg" width="240"> |
-| 竖屏种草开场：四个 Skill 审核中，卖点直给「Skill 也能上架卖钱」 | 跟着做：开放平台打包 zip 上传入口，根目录要有 SKILL.md | 横屏教学成片：一句话做小程序，先看结果再拆步骤 |
-| **首帧封面 3:4** | **结果展示** | **真实搜 Skill** |
-| <img src="assets/showcase/04-cover-3x4.jpg" width="240"> | <img src="assets/showcase/05-result.jpg" width="240"> | <img src="assets/showcase/06-search-skill.jpg" width="240"> |
-| 成片封面就是第一帧：Skill 上架变现 | 市场上已有人在卖，付费示例一眼看懂 | 技能页签真机搜索，红框标出要点再配旁白 |
+| <img src="assets/showcase/cover-6skills.jpg" width="240" alt="做视频必装6个skill封面"> | <img src="assets/showcase/cover-teacher.jpg" width="240" alt="教师篇封面"> | <img src="assets/showcase/cover-miniprogram.jpg" width="240" alt="一句话做小程序封面"> |
 
-> 以上画面均来自本 Skill 实操成片（WorkBuddy 教程），禁止 AI 编造界面。界面版权属 WorkBuddy；成片由作者本人用本 Skill 产出。
+### 成片抽帧（真实界面 + 旁白字幕）
 
-## 一句话
+| 6 个 skill · 开场 | 代码视频 · 真机步骤 | 小程序 · 先看结果 |
+|:---:|:---:|:---:|
+| <img src="assets/showcase/frame-6skills-ui.jpg" width="280" alt="6skills开场抽帧"> | <img src="assets/showcase/frame-code-ui.jpg" width="280" alt="代码视频步骤抽帧"> | <img src="assets/showcase/frame-miniprogram-ui.jpg" width="280" alt="小程序结果抽帧"> |
+| 《做视频，必须 6 个 skill》 | 《WorkBuddy 1 分钟学会做代码视频》 | 《WorkBuddy 一句话做小程序》 |
 
-**选题进来 → 完全自动出教程。** 用户不填表、不学剪辑；对 agent 说一句「用自动化教程 skill 做一条 WorkBuddy XXX 教程」，即可走完 steps → 真机截图/录屏 → 旁白 → 成片/操作指南。
+## 一句话卖点
 
-主战场是 **WorkBuddy**（[open.workbuddy.cn](https://open.workbuddy.cn) / WorkBuddy App）。Skill 结构通用，Claude Code、Codex、Cursor 等也可安装，但实操取证、录屏入口、VoiceBox 等需**自行适配**本机界面与工具链。
+**完全自动化**：给文章链接 / 网页文档 / 截图 / 录屏 → 自动取画面 → 分镜旁白 → 3:4 封面 → 配音字幕 → 成片与备选标题。中间不用碰剪辑软件。
 
-*An Agent Skill for fully automated product tutorials: one topic in → steps / screenshots or screencast / narration / three deliverable tracks out. Built for WorkBuddy; adapt UI & tooling yourself on other agent platforms.*
+主用 **WorkBuddy**（[open.workbuddy.cn](https://open.workbuddy.cn) / WorkBuddy App）。Skill 结构通用，Claude Code、Codex、Cursor 等也可安装，但截图/录屏入口、VoiceBox 配音等需**自行适配**本机界面与工具链。
 
-## 三轨成品（同一 `steps.json`）
+*Fully automated visual tutorials: link / page / screenshots / screencast in → cover + narrated video out. Built for WorkBuddy; adapt tooling yourself on other agent platforms.*
 
-| 路线 | 产出 | 何时用 |
+## 三类输入 → 同一套产出
+
+| 你给什么 | 它怎么取画面 | 你得到什么 |
 |---|---|---|
-| **操作指南 HTML** | `guide.html` | 图文跟做、可点上下步 |
-| **截图动态种草** | 竖屏 `final.mp4` | 利益开场、节奏快的种草短片（禁录屏，真实截图推拉） |
-| **教学演示真机带做** | 横屏 `final.mp4` | 「跟着做 / 上架」类默认：真机边操作边讲 |
-
-中间层统一为 `steps.json`（每步 `goal` / `do` / `see`），选轨不混轨，禁止 AI 编造界面补步骤。
+| 文章链接（公众号 / 网页） | 抓正文 + 下载配图，自动分镜 | 16:9 成片 + 3:4 封面 + 字幕/章节/备选标题 |
+| 网页 / 文档地址 | 自动打开、点击、滚动，真实关键截图 | 同上 |
+| 截图 / 录屏 | 直接入片，自动配版式与说明卡 | 同上 |
 
 ## 安装
 
@@ -43,49 +46,45 @@
 npx skills add sixwei2025/auto-tutorial-skill
 ```
 
-也可以把本仓库里的 `skills/auto-tutorial/` 整个文件夹拷进你的 agent 的 skills 目录。WorkBuddy、Claude Code、Codex、Cursor 等支持 `SKILL.md` 的 agent 都能识别；**配音 / 录屏 / 截图入口请按你本机环境配置**。
+或把本仓库 `skills/auto-tutorial/` 整个文件夹拷进 agent 的 skills 目录（WorkBuddy 识别 frontmatter 名 `可视化教程视频`）。
 
-## 依赖概要
+## 依赖
 
 **必需**
-- Python 3.10+
-- ffmpeg / ffprobe（成片与响度相关处理）
-- 可截图或录屏的桌面环境（WorkBuddy App 或浏览器打开 open.workbuddy.cn）
+- Python 3.10+（`playwright`、`Pillow`）
+- ffmpeg / ffprobe（需 libx264、aac；字幕画在页面里，不需要 libass）
+- 系统 Chrome / Edge（或 Playwright 自带内核）
 
 **可选**
-- VoiceBox 或任意能输出 wav 的 TTS（通过环境变量配置档案与服务地址）
-- 中文字体（封面与字幕）
+- 本机 VoiceBox（默认 `http://127.0.0.1:17493`，可用 `VOICEBOX_API` 改）
+- 中文字体：仓库已带 `assets/fonts/NotoSansSC-VF.ttf`（封面第 6 版思源黑体 900）
 
-VoiceBox 示例配置（请换成你自己的档案与路径）：
+VoiceBox 示例（请换成你自己的音色名，公开包不内置私人声纹）：
 
 ```bash
-export AUTO_TUTORIAL_VOICEBOX_PROFILE='your-profile-uuid'
-export AUTO_TUTORIAL_VOICEBOX_URL='http://127.0.0.1:17493'
-export AUTO_TUTORIAL_VOICEBOX_LOCK="$HOME/voicebox.lock"
+export VOICEBOX_API='http://127.0.0.1:17493'
+export VOICEBOX_PROFILE='YourVoice'
+# 或在 project.json 写 voice.profile_name / voice.profile_id
 ```
-
-完整流程与分轨规则见 `skills/auto-tutorial/SKILL.md` 与 `skills/auto-tutorial/references/`。
 
 ## 快速开始
 
-对 agent 说：
+对 WorkBuddy / agent 说：
 
-> 用自动化教程 skill 做一条 WorkBuddy XXX 教程
+> 用可视化教程视频 skill，把这篇链接做成教程片
 
 或手动：
 
 ```bash
-cd skills/auto-tutorial
-python3 scripts/project.py start /absolute/project --topic '用WorkBuddy上架付费Skill' --expected-seconds 60
-python3 scripts/project.py preflight /absolute/project
-python3 scripts/build_steps_html.py /absolute/project
-# 截图动态：voice.py → fullscreen.py → check_fullscreen.py
-# 教学演示：真机录屏到 raw/screencast/ 后再配音剪辑（见 references/teach-demo.md）
+mkdir my-video && cd my-video
+TV_PROJECT=$PWD python3 <本仓库>/skills/auto-tutorial/scripts/build_all.py --url https://mp.weixin.qq.com/s/xxxx
 ```
+
+更细的字段与踩坑见 `skills/auto-tutorial/QUICKSTART.md` 与 `skills/auto-tutorial/SKILL.md`。
 
 ## 许可
 
-MIT。代码开源。配音的声音、字体、配乐、平台账号与支付凭证请使用你自己有授权的资源；本仓库不附带任何私有 VoiceBox 档案或账号密钥。
+MIT。代码开源。配音的声音、字体授权、配乐、平台账号请使用你自己有授权的资源；本仓库不附带任何私有 VoiceBox 档案或账号密钥。
 
 ---
 
@@ -96,6 +95,6 @@ MIT。代码开源。配音的声音、字体、配乐、平台账号与支付�
 - 公众号：**袁六伟**
 - 视频号：**袁六伟**
 
-这个 Skill 免费开源。觉得有用的话，欢迎点个 ⭐ Star，再关注公众号或视频号「袁六伟」，那里有更多 AI 视频和自动化的实战分享。企业合作也可以通过公众号联系。
+这个 Skill 免费开源。觉得有用的话，欢迎点个 ⭐ Star，再关注公众号或视频号「袁六伟」。企业合作可通过公众号联系。
 
 更多开源 Skill：[talking-head-video-skill](https://github.com/sixwei2025/talking-head-video-skill)、[3d-map-video-skill](https://github.com/sixwei2025/3d-map-video-skill)、[psych-kepu-video-skill](https://github.com/sixwei2025/psych-kepu-video-skill)、[dark-infographic-video-skill](https://github.com/sixwei2025/dark-infographic-video-skill)

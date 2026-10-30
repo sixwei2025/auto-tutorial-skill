@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Before / After</title>
+<style>
+:root{
+  --bg:#f5f4ef; --ink:#111111; --ink-soft:#5a5750; --line:#d2cfc4;
+  --accent:#C7352D;
+  --font:"PingFang SC","Hiragino Sans GB",sans-serif;
+  --mono:"SF Mono",ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:1080px;height:608px;background:var(--bg);font-family:var(--font);-webkit-font-smoothing:antialiased;overflow:hidden;}
+.wrap{width:1080px;height:608px;display:flex;align-items:center;justify-content:center;gap:40px;padding:0 56px;}
+
+.card{width:452px;display:flex;flex-direction:column;}
+.tag{
+  display:inline-flex;align-items:center;gap:10px;align-self:flex-start;
+  font-size:24px;font-weight:600;letter-spacing:.02em;padding:8px 18px 10px;
+  color:#fff;background:var(--ink);margin-bottom:18px;
+}
+.card.now .tag{background:var(--accent);}
+.tag .dot{width:9px;height:9px;background:#fff;border-radius:50%;opacity:.85;}
+
+.frame{
+  border:2px solid var(--ink);background:#fff;line-height:0;overflow:hidden;
+  height:330px;
+}
+.card.now .frame{border-color:var(--accent);}
+.frame img{width:100%;height:100%;object-fit:contain;display:block;}
+.card.past .frame img{filter:saturate(.55) brightness(1.02);}
+
+.cap{
+  margin-top:16px;font-size:25px;line-height:1.4;color:var(--ink-soft);
+}
+.cap b{color:var(--ink);font-weight:600;}
+.card.now .cap b{color:var(--accent);}
+
+.arrow{
+  flex:0 0 56px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:46px;color:var(--ink);opacity:.5;margin-top:36px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="card past">
+    <div class="tag"><span class="dot"></span>以前</div>
+    <div class="frame"><img src="file://__SHOT_PAST__" alt=""></div>
+    <div class="cap">先打开 <b>WorkBuddy</b>，再把文件<br>拖进对话框里</div>
+  </div>
+
+  <div class="arrow">→</div>
+
+  <div class="card now">
+    <div class="tag"><span class="dot"></span>现在</div>
+    <div class="frame"><img src="file://__SHOT_NOW__" alt=""></div>
+    <div class="cap">在文件夹里 <b>右键</b>，<br>打开方式选 WorkBuddy</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="nGlow" cx="50%" cy="50%" r="52%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="50%" stop-color="#16307A" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="nCore" cx="36%" cy="30%" r="76%">
+      <stop offset="0%" stop-color="#FFFDF0"/>
+      <stop offset="24%" stop-color="#FFDC5E"/>
+      <stop offset="68%" stop-color="#E8930C"/>
+      <stop offset="100%" stop-color="#8A4F02"/>
+    </radialGradient>
+    <radialGradient id="nSat" cx="34%" cy="28%" r="78%">
+      <stop offset="0%" stop-color="#D6ECFF"/>
+      <stop offset="32%" stop-color="#5B9BFF"/>
+      <stop offset="100%" stop-color="#0C2A6E"/>
+    </radialGradient>
+    <linearGradient id="nGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFF4B8"/>
+      <stop offset="40%" stop-color="#FFCE45"/>
+      <stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="nBlur" x="-70%" y="-70%" width="240%" height="240%">
+      <feGaussianBlur stdDeviation="13"/>
+    </filter>
+    <filter id="nSoft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <ellipse cx="320" cy="200" rx="308" ry="198" fill="url(#nGlow)"/>
+
+  <!-- 连线 -->
+  <g stroke="url(#nGold)" stroke-width="2.8" opacity=".40" stroke-linecap="round">
+    <line x1="320" y1="200" x2="104" y2="96"/>
+    <line x1="320" y1="200" x2="536" y2="96"/>
+    <line x1="320" y1="200" x2="86" y2="286"/>
+    <line x1="320" y1="200" x2="554" y2="286"/>
+    <line x1="320" y1="200" x2="320" y2="34"/>
+    <line x1="320" y1="200" x2="320" y2="366"/>
+  </g>
+
+  <!-- 外圈节点 -->
+  <g filter="url(#nSoft)">
+    <circle cx="104" cy="96" r="34" fill="url(#nSat)"/>
+    <circle cx="536" cy="96" r="27" fill="url(#nSat)"/>
+    <circle cx="86" cy="286" r="23" fill="url(#nSat)"/>
+    <circle cx="554" cy="286" r="36" fill="url(#nSat)"/>
+    <circle cx="320" cy="34" r="19" fill="url(#nSat)"/>
+    <circle cx="320" cy="366" r="25" fill="url(#nSat)"/>
+  </g>
+
+  <!-- 中心核心 -->
+  <circle cx="320" cy="200" r="86" fill="url(#nCore)" filter="url(#nSoft)"/>
+  <ellipse cx="292" cy="168" rx="30" ry="19" fill="#FFFFFF" opacity=".55" filter="url(#nBlur)"/>
+  <circle cx="320" cy="200" r="118" fill="none" stroke="url(#nGold)" stroke-width="2.2" opacity=".50"/>
+
+  <!-- 细光点 -->
+  <circle cx="186" cy="150" r="5.5" fill="#FFE58A" opacity=".95"/>
+  <circle cx="470" cy="252" r="4.5" fill="#FFE58A" opacity=".85"/>
+  <circle cx="392" cy="62" r="4" fill="#FFF6CF" opacity=".8"/>
+
+  <ellipse cx="320" cy="398" rx="200" ry="16" fill="url(#nGold)" opacity=".18" filter="url(#nBlur)"/>
+</svg>

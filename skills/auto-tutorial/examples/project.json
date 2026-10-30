@@ -1,0 +1,399 @@
+{
+  "title": "WorkBuddy 独立文件浏览器",
+  "slug": "workbuddy-filebrowser",
+  "language": "zh",
+  "series": "WORKBUDDY · 独立文件浏览器",
+  "date": "2026-10-29",
+  "source": "WorkBuddy 官方发布稿 · mp.weixin.qq.com/s/3fTnMCfITqvbz-VlQVO3og",
+  "canvas": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30
+  },
+  "lead": 0.35,
+  "tail": 0.75,
+  "voice": {
+    "profile_name": "YourVoice",
+    "engine": "qwen",
+    "model_size": "1.7B",
+    "speed": 1.5
+  },
+  "voice_note": "VoiceBox 本机音色名填进 voice.profile_name；也可用环境变量 VOICEBOX_PROFILE。默认语速 1.5x",
+  "assets": {
+    "auto": true,
+    "target_width": 2160,
+    "trim_white": true,
+    "ops": []
+  },
+  "titles": {
+    "brand": "WorkBuddy",
+    "feature": "独立文件浏览器",
+    "pain": "把文件传进对话框",
+    "benefit": "右键就能用 AI",
+    "crowd": "一人公司老板",
+    "scene": "通勤、会议、出差",
+    "steps": "3",
+    "money": "3000"
+  },
+  "cover": {
+    "template": "cover-videohao.html",
+    "bg": "#05080F",
+    "ink": "#FFFFFF",
+    "ink_soft": "#C8D4E8",
+    "line": "#1E3358",
+    "accent": "#FFD24A",
+    "accent_deep": "#F0A81B",
+    "badge": "WorkBuddy实操",
+    "badge_bg": "#E5392F",
+    "line_colors": [
+      "white",
+      "gold"
+    ],
+    "width": 1080,
+    "height": 1440,
+    "dpr": 2,
+    "pad_y": 74,
+    "pad_x": 62,
+    "title_size": 260,
+    "max_lines": 2,
+    "title_lines": [
+      "别再传",
+      "文件了"
+    ],
+    "art": "motif",
+    "motif": "orbit",
+    "output": "cover/cover-3x4.png",
+    "cover_duration": 0.1
+  },
+  "scenes": [
+    {
+      "id": "title",
+      "shot": "assets/screenshots/00-intro-compare.png",
+      "title": "以前要传进对话框，现在右键就行",
+      "instruction": "同样是处理本地文件，少了一步上传。",
+      "aside": "为什么",
+      "checklist": [
+        [
+          "以前：传进对话框",
+          "done"
+        ],
+        [
+          "现在：右键打开",
+          "current"
+        ],
+        [
+          "文件始终在你电脑里",
+          "todo"
+        ]
+      ],
+      "tip": "省掉的不只是上传，还有反复下载新版本。",
+      "voice": "以前想让 AI 处理一份本地文件，你得先打开 WorkBuddy，再把文件传进对话框。现在，这一步可以省掉了。WorkBuddy 正式上线独立文件浏览器。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "rightclick",
+      "shot": "assets/screenshots/02.png",
+      "title": "右键 →「打开方式」→ WorkBuddy",
+      "instruction": "文件夹里右键，打开方式选 WorkBuddy。",
+      "aside": "第 1 步",
+      "checklist": [
+        [
+          "在文件夹里找到文件",
+          "done"
+        ],
+        [
+          "右键 → 打开方式",
+          "current"
+        ],
+        [
+          "选 WorkBuddy",
+          "todo"
+        ]
+      ],
+      "tip": "常处理文件的话，可以把它设为默认打开方式，之后双击就行。",
+      "voice": "在文件夹里找到一份文件，比如这份方案。右键，打开方式，选 WorkBuddy。",
+      "zoom": 1.55,
+      "target": {
+        "x": 0.637,
+        "y": 0.2354,
+        "width": 0.363,
+        "height": 0.3007
+      },
+      "halo": true
+    },
+    {
+      "id": "window",
+      "shot": "assets/screenshots/03.png",
+      "title": "左边是文件，右边是 Buddy",
+      "instruction": "独立窗口，看问改都围着这份文件。",
+      "aside": "第 2 步",
+      "checklist": [
+        [
+          "独立窗口打开",
+          "done"
+        ],
+        [
+          "左边文件、右边对话",
+          "current"
+        ],
+        [
+          "Word/Excel/PPT/PDF/MD/HTML 全支持",
+          "todo"
+        ]
+      ],
+      "tip": "每份文件都有自己的 Buddy 对话，互不干扰。",
+      "voice": "它会直接开一个独立窗口。左边是文件，右边是 Buddy。看、问、改，都围着你眼前这份文件。Word、Excel、PPT、PDF、Markdown、HTML，都能直接打开。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "ask",
+      "shot": "assets/screenshots/05.png",
+      "title": "打开就能问，不用先上传",
+      "instruction": "几十页的 PDF，直接问它讲了什么。",
+      "aside": "第 3 步",
+      "checklist": [
+        [
+          "收到文件直接打开",
+          "done"
+        ],
+        [
+          "在右侧提问",
+          "current"
+        ],
+        [
+          "按回答继续追问",
+          "todo"
+        ]
+      ],
+      "tip": "数据表也一样：「哪几个产品卖得最好，按大区排一下」。",
+      "voice": "收到一份几十页的 PDF，打开就能问：这份文件主要讲了什么，帮我列三条重点。换成一张数据表，也可以直接说：哪几个产品卖得最好，按大区帮我排一下。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "tabs",
+      "shot": "assets/screenshots/04.png",
+      "title": "一个窗口，多份文件",
+      "instruction": "每份文件一个标签页，对话跟着切。",
+      "aside": "第 4 步",
+      "checklist": [
+        [
+          "同时打开多份文件",
+          "done"
+        ],
+        [
+          "标签页切换",
+          "current"
+        ],
+        [
+          "对话跟随当前文件",
+          "todo"
+        ]
+      ],
+      "tip": "标签切换时，右侧对话自动切到这份文件的那一段。",
+      "voice": "一个窗口能同时开多份文件，每份都是一个标签页。切换标签，右侧的对话跟着一起切，每段对话都围绕当前这份文件。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "dual",
+      "shot": "assets/screenshots/09.png",
+      "title": "人机双写：说一句，它就改",
+      "instruction": "选文件说一句，改过处黄色标出。",
+      "aside": "第 5 步",
+      "checklist": [
+        [
+          "自己动手改也行",
+          "done"
+        ],
+        [
+          "或交给 Buddy 改",
+          "current"
+        ],
+        [
+          "改过处黄色标记",
+          "todo"
+        ]
+      ],
+      "tip": "也可以先选中正文某一段，再让 Buddy 只改这一段。",
+      "voice": "支持编辑的文件，打开就能改。你可以自己动手，也可以随时让 Buddy 来。比如这份方案，背景与目标太长，直接说一句：简化一下背景与目标。它改过的地方，会用黄色色块标在原文里，哪里动了，一眼就能看出来。",
+      "zoom": 1.5,
+      "target": {
+        "x": 0.0963,
+        "y": 0.6645,
+        "width": 0.3574,
+        "height": 0.1837
+      },
+      "halo": true
+    },
+    {
+      "id": "save",
+      "shot": "assets/screenshots/10.png",
+      "title": "保存直接写回本地",
+      "instruction": "改的就是本地文件，按 Command + S 存回。",
+      "aside": "第 6 步",
+      "checklist": [
+        [
+          "Word/Excel/PPT 手动保存",
+          "done"
+        ],
+        [
+          "Markdown/HTML 自动保存",
+          "done"
+        ],
+        [
+          "关闭前提醒未保存",
+          "todo"
+        ]
+      ],
+      "tip": "不用再堆「最终版 2」「最终版真的最终」。",
+      "voice": "改的就是电脑里这份本地文件。Command 加 S，修改直接写回原处。不用反复下载新版本，也不用在文件夹里堆出最终版、最终版二、最终版真的最终。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "extend",
+      "shot": "assets/screenshots/11.png",
+      "title": "从这份文件继续往下做",
+      "instruction": "打开 Excel，说「做个网页版汇报」。",
+      "aside": "第 7 步",
+      "checklist": [
+        [
+          "基于当前文件继续处理",
+          "done"
+        ],
+        [
+          "新文件存在原目录",
+          "current"
+        ],
+        [
+          "点开就是新标签页",
+          "todo"
+        ]
+      ],
+      "tip": "从已有内容出发，不用重新描述一遍背景。",
+      "voice": "还能从这份文件继续往下做。打开一张 Excel，说：按这份数据，帮我做一个网页版汇报。WorkBuddy 会基于当前文件继续处理，新生成的文件默认存在原目录。",
+      "zoom": 1.06,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "mdhtml",
+      "shot": "assets/screenshots/md-html.png",
+      "title": "Markdown、HTML 直接改",
+      "instruction": "Markdown 打开就是排好版的样子。",
+      "aside": "第 8 步",
+      "checklist": [
+        [
+          "排版视图直接编辑",
+          "done"
+        ],
+        [
+          "也可用 md 语法写",
+          "current"
+        ],
+        [
+          "HTML 切编辑/预览",
+          "todo"
+        ]
+      ],
+      "tip": "输入两个井号加空格，标题样式立刻显示出来。",
+      "voice": "Markdown 打开就是排好版的样子，可以像普通文档一样点进去改；想用语法写作也行，输入会同步渲染。HTML 默认网页预览，需要调整时切到编辑状态。改完自动保存。",
+      "zoom": 1.02,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "wechat",
+      "shot": "assets/screenshots/18-phone.png",
+      "title": "微信收到，也能直接看",
+      "instruction": "选「用其他应用打开」，小程序直接看。",
+      "aside": "第 9 步",
+      "checklist": [
+        [
+          "微信里选其他应用打开",
+          "done"
+        ],
+        [
+          "小程序预览",
+          "current"
+        ],
+        [
+          "加入对话继续处理",
+          "todo"
+        ]
+      ],
+      "tip": "预览文件本身不消耗积分；转发出去，对方点开就能看。",
+      "voice": "在微信里收到这两类文件，选用其他应用打开，就能用 WorkBuddy 小程序直接预览。转发出去，对方点开就能看。想让 AI 继续处理，把文件加入对话就行。",
+      "zoom": 1.02,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "qa",
+      "shot": "assets/screenshots/qa-card.png",
+      "title": "三件你可能关心的事",
+      "instruction": "积分、隐私、文件冲突，都有答案。",
+      "aside": "常见疑问",
+      "checklist": [
+        [
+          "查看编辑不扣积分",
+          "done"
+        ],
+        [
+          "只读你打开的文件",
+          "done"
+        ],
+        [
+          "别处被改会提示，不覆盖",
+          "current"
+        ]
+      ],
+      "tip": "只有对话里用 AI 才扣积分，按实际任务算。",
+      "voice": "三件你可能关心的事。第一，查看和编辑本地文件不消耗积分，只有在对话里让 Buddy 总结、改写、生成内容，才按实际任务扣。第二，它只读你主动打开的文件，不会遍历或扫描你的硬盘。第三，同一份文件在别处被改了，它不会自动覆盖，会提示你选择刷新还是另存。",
+      "zoom": 1.02,
+      "target": null,
+      "halo": false
+    },
+    {
+      "id": "outro",
+      "shot": "assets/screenshots/00-title.png",
+      "title": "文件在哪，Buddy 就在哪开工",
+      "instruction": "打开文件，就能直接用 AI。",
+      "aside": "结尾",
+      "checklist": [
+        [
+          "右键就能打开",
+          "done"
+        ],
+        [
+          "看完这条你自己试试",
+          "current"
+        ]
+      ],
+      "tip": "更新 WorkBuddy 后即可使用，无需单独下载。",
+      "voice": "从先进入 WorkBuddy 再处理文件，到打开文件就能直接用 AI。文件在哪，Buddy 就在哪开工。",
+      "zoom": 1.02,
+      "target": null,
+      "halo": false
+    }
+  ],
+  "theme": {
+    "accent": "#C7352D",
+    "accent_deep": "#B92F27",
+    "ink": "#1A1614",
+    "ink_soft": "#5C524D",
+    "ink_mute": "#8A7D77",
+    "line": "#EADCD9",
+    "panel": "#FAF6F4",
+    "sub_from": "#B5A8A2",
+    "sub_to": "#1A1614"
+  }
+}

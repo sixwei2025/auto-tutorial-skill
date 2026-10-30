@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" /><meta name="color-scheme" content="light">
+<title>{{TITLE}} · Cover Poster</title>
+<style>
+/* 满出血海报式封面：背景铺到四边，不留任何白边；文字尽量大 */
+:root{
+  --bg:{{BG}}; --ink:{{INK}}; --ink-soft:{{INK_SOFT}}; --line:{{LINE}};
+  --accent:{{ACCENT}}; --accent-deep:{{ACCENT_DEEP}};
+  --font:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --mono:"SF Mono","JetBrains Mono",ui-monospace,monospace;
+  --cv-w:{{CV_W}}px; --cv-h:{{CV_H}}px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;}
+.cover{width:var(--cv-w);height:var(--cv-h);position:relative;overflow:hidden;
+  background:var(--bg);padding:{{PAD_Y}}px {{PAD_X}}px;
+  display:flex;flex-direction:column;}
+/* 顶部一条满宽的高光，让底色不至于死板（仍属背景，不出白边） */
+.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:10px;background:var(--ink);opacity:.28}
+.top{display:flex;justify-content:space-between;align-items:baseline;
+  padding-bottom:18px;border-bottom:3px solid var(--ink);}
+.kicker{font-family:var(--mono);font-size:26px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:700;color:var(--ink);}
+.kicker .dot{color:var(--ink);}
+.index{font-family:var(--mono);font-size:22px;letter-spacing:.14em;color:var(--ink-soft);}
+.body{flex:1;display:flex;flex-direction:column;padding-top:44px;min-height:0;}
+.title{font-weight:800;font-size:{{TITLE_SIZE}}px;line-height:1.02;letter-spacing:-.045em;
+  color:var(--ink);text-wrap:balance;}
+.title .line{display:block;white-space:nowrap;width:fit-content;max-width:100%;}
+.title .accent{color:var(--accent);}
+/* 品牌行：第 1 行是 WorkBuddy 时自动缩小当引子，第二行大字才是钩子 */
+.title .brand{display:block;font-size:.40em;line-height:1.14;letter-spacing:.015em;
+  color:var(--ink-soft);margin-bottom:.10em;font-weight:800;}
+.sub{font-weight:600;font-size:{{SUB_SIZE}}px;line-height:1.28;letter-spacing:.01em;
+  color:var(--ink);margin-top:20px;}
+.sub .mark{color:var(--bg);background:var(--ink);padding:2px 16px 7px;border-radius:3px;}
+.shot{margin-top:30px;border:3px solid var(--ink);line-height:0;overflow:hidden;
+  background:#fff;flex:1 1 auto;min-height:0;}
+.shot img{width:100%;height:100%;object-fit:{{SHOT_FIT}};object-position:top center;display:block;}
+.foot{margin-top:22px;padding-top:16px;border-top:2px solid var(--line);
+  display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  font-family:var(--mono);font-size:24px;letter-spacing:.04em;color:var(--ink-soft);}
+.foot .val{color:var(--ink);font-weight:700;white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="cover">
+  <!--BLOCK:top-->
+  <div class="top">
+    <div class="kicker">{{KICKER}}</div>
+    <div class="index">{{INDEX}}</div>
+  </div>
+  <!--/BLOCK:top-->
+  <div class="body">
+    <h1 class="title">{{TITLE_HTML}}</h1>
+    <!--BLOCK:sub-->
+    <p class="sub">{{SUB_HTML}}</p>
+    <!--/BLOCK:sub-->
+    <div class="shot"><img src="file://{{SHOT}}" alt=""></div>
+  </div>
+  <!--BLOCK:foot-->
+  <div class="foot">
+    <span>{{FOOT_L}}</span>
+    <span class="val">{{FOOT_R}}</span>
+  </div>
+  <!--/BLOCK:foot-->
+</div>
+<script>
+(function autofit(){
+  var t = document.querySelector('.title');
+  if(!t) return;
+  var s = parseFloat(getComputedStyle(t).fontSize), floor = s*0.5, box = (t.clientWidth || 900)*0.96;
+  var ls = t.querySelectorAll('.line'), guard = 0;
+  function over(){
+    if(!ls.length) return t.scrollWidth > box + 2;
+    for(var i=0;i<ls.length;i++){ if(ls[i].scrollWidth > box + 2) return true; }
+    return false;
+  }
+  while((over() || t.scrollHeight > s*2.25) && s > floor && guard++ < 120){
+    s -= 3; t.style.fontSize = s + 'px';
+  }
+})();
+</script>
+</body>
+</html>

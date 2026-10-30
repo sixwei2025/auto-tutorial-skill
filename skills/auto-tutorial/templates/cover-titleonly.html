@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" /><meta name="color-scheme" content="light">
+<title>{{TITLE}} · Cover</title>
+<style>
+/* 标题-only 封面：整幅一种底色铺满，只留标题（最多两行），其余文字全不要。
+   缩到 160px 宽也必须是「一块实色 + 两行大字」。 */
+:root{
+  --bg:{{BG}}; --ink:{{INK}}; --line:{{LINE}};
+  --font:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;
+  --cv-w:{{CV_W}}px; --cv-h:{{CV_H}}px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--font);-webkit-font-smoothing:antialiased;}
+.cover{width:var(--cv-w);height:var(--cv-h);position:relative;overflow:hidden;
+  background:var(--bg);padding:{{PAD_Y}}px {{PAD_X}}px;display:flex;flex-direction:column;}
+.title{font-weight:900;font-size:{{TITLE_SIZE}}px;line-height:.98;letter-spacing:-.05em;
+  color:var(--ink);margin-top:{{TITLE_TOP}}px;flex:0 0 auto;}
+.title .accent{color:var(--ink);}
+.title > span{display:block;white-space:nowrap;}
+.shot{margin-top:{{SHOT_TOP}}px;line-height:0;overflow:hidden;
+  background:transparent;flex:1 1 auto;min-height:0;display:flex;align-items:flex-end;justify-content:center;}
+.shot img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;}
+</style>
+</head>
+<body>
+<div class="cover">
+  <h1 class="title">{{TITLE_HTML}}</h1>
+  <div class="shot"><img src="file://{{SHOT}}" alt=""></div>
+</div>
+<script>
+(function autofit(){
+  var t = document.querySelector('.title');
+  if(!t) return;
+  var lns = t.querySelectorAll('span');
+  var box = t.clientWidth || 900;
+  var s = parseFloat(getComputedStyle(t).fontSize), floor = 88, guard = 0;
+  function tooWide(){
+    for (var i=0;i<lns.length;i++){ if (lns[i].scrollWidth > box + 1) return true; }
+    return false;
+  }
+  while (tooWide() && s > floor && guard++ < 180){ s -= 2; t.style.fontSize = s + 'px'; }
+})();
+</script>
+</body>
+</html>
