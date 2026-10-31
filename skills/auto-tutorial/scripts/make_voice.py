@@ -106,16 +106,7 @@ def main():
         raise SystemExit("VoiceBox 未响应。请先启动 VoiceBox（默认端口 17493），"
                          "或设置环境变量 VOICEBOX_API。")
 
-    # 音色必须在 project.json 的 voice.profile_name（或 profile_id）里配置，
-    # 也可设环境变量 VOICEBOX_PROFILE；公开包不内置任何私人声纹档案。
-    pname = V.get("profile_name") or os.environ.get("VOICEBOX_PROFILE")
-    pid = V.get("profile_id") or os.environ.get("VOICEBOX_PROFILE_ID")
-    if not pname and not pid:
-        raise SystemExit(
-            "未配置配音音色。请在 project.json 写 voice.profile_name（或 voice.profile_id），"
-            "或设置环境变量 VOICEBOX_PROFILE / VOICEBOX_PROFILE_ID。"
-        )
-    profile = vb_profile(pname, pid)
+    profile = vb_profile(V.get("profile_name", "袁六伟"), V.get("profile_id"))
     if not profile:
         raise SystemExit("指定VoiceBox档案不存在；停止生成，请用户确认，禁止替换声音。")
     print("音色 %s  id=%s  默认引擎=%s  语速=%sx"

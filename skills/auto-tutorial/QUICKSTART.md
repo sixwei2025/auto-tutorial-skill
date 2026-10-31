@@ -13,8 +13,7 @@ python -m playwright install chrome     # 已有 Chrome 可跳过
 - Windows：`winget install Gyan.FFmpeg`（或 scoop / choco）
 - Linux：`sudo apt install ffmpeg`
 
-要用自己声音配音，需要本机 **VoiceBox**（默认 `http://127.0.0.1:17493`，可用 `VOICEBOX_API` 改）。
-在 `project.json` 的 `voice.profile_name` 填你的音色名，或设环境变量 `VOICEBOX_PROFILE`。
+要用自己声音配音，需要 **VoiceBox** 在 `127.0.0.1:17493` 运行。
 
 ## 2. 跑一条试试
 
@@ -51,8 +50,7 @@ TV_PROJECT=$PWD python3 scripts/build_all.py --from manifest   # 只改画面文
 
 | 现象 | 原因 / 处理 |
 |---|---|
-| 报「VoiceBox 未响应」 | 先启动 VoiceBox；端口不是 17493 就设 `VOICEBOX_API` |
-| 报「未配置配音音色」 | 在 `project.json` 写 `voice.profile_name`，或设 `VOICEBOX_PROFILE` |
+| 报「VoiceBox 未响应」 | 先启动 VoiceBox；端口不是 17493 就设环境变量 `VOICEBOX_API` |
 | 报「找不到 VoiceBox 音频目录」 | 在 `project.json` 的 `voice.data_dir` 填 generations 目录 |
 | 报「找不到 ffmpeg」 | 装 ffmpeg，或让它进 PATH |
 | 封面文案平淡 | 填 `titles.pain` / `titles.benefit`，或直接手改 `cover.title_lines` 第 2 行 |

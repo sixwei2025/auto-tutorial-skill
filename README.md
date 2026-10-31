@@ -24,6 +24,11 @@
 | <img src="assets/showcase/frame-6skills-ui.jpg" width="280" alt="6skills开场抽帧"> | <img src="assets/showcase/frame-code-ui.jpg" width="280" alt="代码视频步骤抽帧"> | <img src="assets/showcase/frame-miniprogram-ui.jpg" width="280" alt="小程序结果抽帧"> |
 | 《做视频，必须 6 个 skill》 | 《WorkBuddy 1 分钟学会做代码视频》 | 《WorkBuddy 一句话做小程序》 |
 
+
+## 统一结尾 CTA（2026-10-30 下午增量）
+
+成片末镜固定旁白与画面：**评论区回复666，送你2693元的一人公司福利包。**（禁职业分支口令、不要说点关注；画面 `skills/auto-tutorial/assets/cta-666.png`，脚本 `skills/auto-tutorial/scripts/standard_cta.py`。）另含 100 个职业系列封面规则与清单/盘点类选题硬规则；封面规范仍为**第 6 版**（未升第 7 版）。
+
 ## 一句话卖点
 
 **完全自动化**：给文章链接 / 网页文档 / 截图 / 录屏 → 自动取画面 → 分镜旁白 → 3:4 封面 → 配音字幕 → 成片与备选标题。中间不用碰剪辑软件。

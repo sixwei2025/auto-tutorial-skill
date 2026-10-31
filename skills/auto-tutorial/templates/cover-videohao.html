@@ -66,11 +66,11 @@ html,body{background:var(--bg);color:var(--ink);font-family:var(--font);
   box-shadow:0 10px 34px rgba(210,40,32,.42), inset 0 1px 0 rgba(255,255,255,.28);}
 
 /* ---------- 大字 ---------- */
-.title{position:relative;z-index:3;padding:0 40px;
+.title{position:relative;z-index:3;padding:0 14px;
   margin-top:34px;flex:0 0 auto;
-  font-weight:900;font-size:{{TITLE_SIZE}}px;line-height:1.10;letter-spacing:0;
+  font-weight:900;font-size:{{TITLE_SIZE}}px;line-height:1.34;text-align:left;letter-spacing:0;
   font-variation-settings:'wght' 900;}
-.title .line{display:block;white-space:nowrap;width:fit-content;max-width:100%;
+.title .line{display:block;white-space:nowrap;width:fit-content;
   margin:0 auto;}
 /* 白字：轻微蓝调冷光，压在暗底上更立体 */
 .title .white{color:#FFFFFF;
@@ -110,8 +110,8 @@ function autofit(){
   var t = document.querySelector('.title');
   if(!t) return;
   var lns = t.querySelectorAll('.line');
-  var box = ((t.clientWidth || 1080) - 80) * 0.94;   // 80 = 左右各 40px 内边距
-  var s = parseFloat(getComputedStyle(t).fontSize), floor = 88, guard = 0;
+  var box = ((t.clientWidth || 1080) - 44) * 0.96;   // 80 = 左右各 40px 内边距
+  var s = parseFloat(getComputedStyle(t).fontSize), floor = 40, guard = 0;
   var maxH = (t.parentElement ? t.parentElement.clientHeight : 1440) * 0.375;  // 大字最多占画幅 37.5%，剩下都留给矢量图形
   function tooWide(){
     for (var i=0;i<lns.length;i++){ if (lns[i].scrollWidth > box + 1) return true; }

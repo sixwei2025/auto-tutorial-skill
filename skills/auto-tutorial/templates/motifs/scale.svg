@@ -1,0 +1,37 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="sGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="sGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="sRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#sGlow)"/>
+
+  <!-- 立柱与底座 -->
+  <line x1="320" y1="96" x2="320" y2="318" stroke="url(#sGold)" stroke-width="9" stroke-linecap="round"/>
+  <path d="M250 330 q70 -18 140 0" fill="none" stroke="url(#sGold)" stroke-width="9" stroke-linecap="round" filter="url(#sRing)"/>
+  <circle cx="320" cy="92" r="13" fill="url(#sGold)" filter="url(#sRing)"/>
+
+  <!-- 横梁 -->
+  <line x1="150" y1="150" x2="490" y2="150" stroke="url(#sGold)" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- 左盘 -->
+  <line x1="150" y1="150" x2="150" y2="212" stroke="url(#sGold)" stroke-width="4" opacity=".8"/>
+  <path d="M96 212 h108 a54 54 0 0 1 -108 0 z" fill="none" stroke="url(#sGold)" stroke-width="6" filter="url(#sRing)"/>
+  <!-- 右盘（略高，示意倾斜/权衡） -->
+  <line x1="490" y1="150" x2="490" y2="186" stroke="url(#sGold)" stroke-width="4" opacity=".8"/>
+  <path d="M436 186 h108 a54 54 0 0 1 -108 0 z" fill="none" stroke="url(#sGold)" stroke-width="6" filter="url(#sRing)"/>
+
+  <!-- 高光点 -->
+  <circle cx="150" cy="150" r="7" fill="#FFE58A" filter="url(#sRing)"/>
+  <circle cx="490" cy="150" r="7" fill="#FFE58A" filter="url(#sRing)"/>
+
+  <ellipse cx="320" cy="392" rx="200" ry="18" fill="url(#sGold)" opacity=".18" filter="url(#sRing)"/>
+</svg>

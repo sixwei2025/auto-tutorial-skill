@@ -1,0 +1,42 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="lGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="lRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#lGlow)"/>
+
+  <!-- 后张单 -->
+  <rect x="176" y="86" width="250" height="300" rx="14" fill="#0B1730" stroke="url(#lGold)" stroke-width="3" opacity=".45" transform="rotate(-6 300 236)"/>
+  <!-- 前张单 -->
+  <rect x="216" y="78" width="256" height="300" rx="14" fill="#0E1E42" stroke="url(#lGold)" stroke-width="5" filter="url(#lRing)"/>
+  <rect x="248" y="112" width="150" height="9" rx="4" fill="url(#lGold)" opacity=".9"/>
+
+  <!-- 行 -->
+  <g stroke="url(#lGold)" stroke-width="5" stroke-linecap="round" opacity=".62">
+    <line x1="248" y1="156" x2="404" y2="156"/>
+    <line x1="248" y1="192" x2="380" y2="192"/>
+    <line x1="248" y1="300" x2="398" y2="300"/>
+    <line x1="248" y1="336" x2="360" y2="336"/>
+  </g>
+  <!-- 不一致行（高亮） -->
+  <rect x="236" y="216" width="204" height="48" rx="8" fill="url(#lGold)" opacity=".16"/>
+  <line x1="248" y1="240" x2="420" y2="240" stroke="url(#lGold)" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="446" cy="240" r="17" fill="url(#lGold)" filter="url(#lRing)"/>
+  <path d="M439 233 l14 14 M453 233 l-14 14" stroke="#0B1730" stroke-width="4.2" stroke-linecap="round"/>
+
+  <!-- 金币 -->
+  <circle cx="500" cy="316" r="44" fill="#0E1E42" stroke="url(#lGold)" stroke-width="6" filter="url(#lRing)"/>
+  <text x="500" y="332" font-family="PingFang SC,Hiragino Sans GB,sans-serif" font-size="42" font-weight="700"
+        fill="url(#lGold)" text-anchor="middle">¥</text>
+
+  <ellipse cx="320" cy="394" rx="220" ry="18" fill="url(#lGold)" opacity=".18" filter="url(#lRing)"/>
+</svg>

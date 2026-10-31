@@ -13,12 +13,13 @@
   "lead": 0.35,
   "tail": 0.75,
   "voice": {
-    "profile_name": "YourVoice",
+    "profile_name": "袁六伟",
+    "profile_id": "4fcdbe0e-b07c-422b-838d-b81f53bbb383",
     "engine": "qwen",
     "model_size": "1.7B",
     "speed": 1.5
   },
-  "voice_note": "VoiceBox 本机音色名填进 voice.profile_name；也可用环境变量 VOICEBOX_PROFILE。默认语速 1.5x",
+  "voice_note": "VoiceBox 本机音色「袁六伟」，qwen / 1.7B，1.5x",
   "assets": {
     "auto": true,
     "target_width": 2160,

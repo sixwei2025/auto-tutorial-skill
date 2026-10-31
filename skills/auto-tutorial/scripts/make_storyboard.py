@@ -397,10 +397,9 @@ out = {
     "canvas": HINT.get("canvas", {"width": 1920, "height": 1080, "fps": 30}),
     "lead": HINT.get("lead", 0.35), "tail": HINT.get("tail", 0.75),
     "voice": HINT.get("voice", {
-        "profile_name": os.environ.get("VOICEBOX_PROFILE", "YourVoice"),
-        "engine": None, "model_size": "1.7B",
+        "profile_name": "袁六伟", "engine": None, "model_size": "1.7B",
         "speed": 1.5, "loudnorm": "I=-14:TP=-1.0:LRA=9"}),
-    "voice_note": "VoiceBox 本机声纹（请在 voice.profile_name 填你的音色名），语速 1.5x，响度 -14 LUFS",
+    "voice_note": "VoiceBox 本机声纹，语速 1.5x，响度 -14 LUFS",
     "assets": HINT.get("assets", {"auto": True, "target_width": 2160, "trim_white": True}),
     "cover": cover,
     # 说明卡主色固定品牌红：封面强调色是金色，不能把它带到正文/卡片里

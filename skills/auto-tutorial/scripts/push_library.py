@@ -5,8 +5,7 @@
 
 用法：
   TV_PROJECT=/path python3 push_library.py                      # 用 project.json 的 title/slug
-  TV_PROJECT=/path python3 push_library.py --dir ~/Videos/tutorial-output
-  TV_LIBRARY_DIR=~/Videos/tutorial-output TV_PROJECT=/path python3 push_library.py
+  TV_PROJECT=/path python3 push_library.py --dir ~/Desktop/视频大杂烩
   TV_PROJECT=/path python3 push_library.py --dry                # 只打印要做什么
 """
 import datetime
@@ -54,9 +53,8 @@ def pick_dir():
                 if os.path.isdir(p):
                     return p
     except Exception as e:
-        print("   ⚠ 读不到 /api/output_dirs（%s），退回默认目录" % e)
-    # 公开包默认：环境变量 TV_LIBRARY_DIR，否则 ~/Videos/tutorial-output
-    return os.path.expanduser(os.environ.get("TV_LIBRARY_DIR", "~/Videos/tutorial-output"))
+        print("   ⚠ 读不到 /api/output_dirs（%s），退回桌面" % e)
+    return os.path.expanduser("~/Desktop/视频大杂烩")
 
 
 DEST = pick_dir()

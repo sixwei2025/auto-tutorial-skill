@@ -25,10 +25,10 @@
 - `/api/voices`、`/api/health` 都不存在。正确是 `GET /profiles` 和 `GET /health`。
 - `GET /generate/{id}/status` 返回 **SSE 格式** `data: {...}`，必须剥前缀再 `json.loads`。
 - preset 音色（Vivian / Serena）`default_engine` 是 `qwen_custom_voice`，传 `engine=qwen` 会 400。
-- 克隆音色用 `engine=qwen`（在 `voice.profile_name` 填你的音色名）。
+- 克隆音色（如「袁六伟」）用 `engine=qwen`。
 - 音频落盘在 `~/Library/Application Support/sh.voicebox.app/generations/{id}.wav`。
 - 自带 normalize，各段 mean_volume 一致（实测全是 -20.0dB），不需要二次处理。
-- 倍速不在 VoiceBox 做，统一 `ffmpeg -filter:a atempo=1.5`（音调不变）。**固定 1.5x**——实测 1.35x 只有 4.6 汉字/秒，比抖音主流口播慢 15–20%；1.5x 约 5.2–5.4 音节/秒，正好对上。**1.5x 是唯一标准、不许降**（本 Skill 2026-10-30 起）；`make_voice.py` 已加下限保护，project.json 里写 1.35 会被强制拉回 1.5 并告警。
+- 倍速不在 VoiceBox 做，统一 `ffmpeg -filter:a atempo=1.5`（音调不变）。**固定 1.5x**——实测 1.35x 只有 4.6 汉字/秒，比抖音主流口播慢 15–20%；1.5x 约 5.2–5.4 音节/秒，正好对上。**1.5x 是唯一标准、不许降**（袁总 2026-10-30 拍板）；`make_voice.py` 已加下限保护，project.json 里写 1.35 会被强制拉回 1.5 并告警。
 - **改了 speed 别重新合成**：`make_voice.py` 会把未变速的原始音存进 `voice/raw/<id>.wav` 并记 hash，改 speed 只重跑 `atempo`，8 段几秒完成；文本改了自动重合成，换音色/模型才需要 `--resynth`。
 - **每段语速会飘**：8 段独立合成，实测最快 5.92 / 最慢 4.14 音节/秒，差 37%。落音后按 `音节块数 / 时长` 量一遍，低于 4.3 的段重合成或砍文本。
 

@@ -1,0 +1,32 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="gGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="gRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#gGlow)"/>
+
+  <!-- 学士帽 -->
+  <path d="M320 96 L520 176 L320 256 L120 176 Z" fill="#0E1E42" stroke="url(#gGold)" stroke-width="6"
+        stroke-linejoin="round" filter="url(#gRing)"/>
+  <path d="M200 214 v58 q120 56 240 0 v-58" fill="none" stroke="url(#gGold)" stroke-width="6"
+        stroke-linecap="round" filter="url(#gRing)"/>
+  <!-- 帽穗 -->
+  <path d="M320 176 v78" stroke="url(#gGold)" stroke-width="4" opacity=".7"/>
+  <circle cx="320" cy="262" r="12" fill="url(#gGold)" filter="url(#gRing)"/>
+  <path d="M320 262 q28 14 26 46" fill="none" stroke="url(#gGold)" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+
+  <!-- 书 -->
+  <rect x="236" y="318" width="168" height="20" rx="6" fill="url(#gGold)" opacity=".8" filter="url(#gRing)"/>
+  <rect x="256" y="338" width="128" height="14" rx="5" fill="url(#gGold)" opacity=".5"/>
+
+  <ellipse cx="320" cy="392" rx="200" ry="18" fill="url(#gGold)" opacity=".18" filter="url(#gRing)"/>
+</svg>

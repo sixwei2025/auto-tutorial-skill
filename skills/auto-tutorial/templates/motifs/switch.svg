@@ -1,0 +1,34 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="wGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="wRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#wGlow)"/>
+
+  <!-- 三档开关：上两个关，中间一个开 -->
+  <g>
+    <rect x="150" y="86" width="340" height="76" rx="38" fill="#0B1730" stroke="url(#wGold)" stroke-width="4" opacity=".55"/>
+    <circle cx="194" cy="124" r="26" fill="none" stroke="url(#wGold)" stroke-width="4" opacity=".6"/>
+
+    <rect x="150" y="176" width="340" height="76" rx="38" fill="#0E1E42" stroke="url(#wGold)" stroke-width="6" filter="url(#wRing)"/>
+    <circle cx="446" cy="214" r="30" fill="url(#wGold)" filter="url(#wRing)"/>
+
+    <rect x="150" y="266" width="340" height="76" rx="38" fill="#0B1730" stroke="url(#wGold)" stroke-width="4" opacity=".55"/>
+    <circle cx="194" cy="304" r="26" fill="none" stroke="url(#wGold)" stroke-width="4" opacity=".6"/>
+  </g>
+
+  <!-- 指示点 -->
+  <circle cx="446" cy="124" r="8" fill="url(#wGold)" opacity=".35"/>
+  <circle cx="446" cy="304" r="8" fill="url(#wGold)" opacity=".35"/>
+
+  <ellipse cx="320" cy="392" rx="200" ry="18" fill="url(#wGold)" opacity=".18" filter="url(#wRing)"/>
+</svg>

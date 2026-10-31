@@ -1,0 +1,36 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="bGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="bRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#bGlow)"/>
+
+  <!-- 贝塞尔曲线 -->
+  <path d="M96 320 C 200 120, 430 120, 544 300" fill="none" stroke="url(#bGold)" stroke-width="9"
+        stroke-linecap="round" filter="url(#bRing)"/>
+  <!-- 控制柄 -->
+  <line x1="96" y1="320" x2="200" y2="120" stroke="url(#bGold)" stroke-width="3.4" opacity=".62" stroke-dasharray="8 8"/>
+  <line x1="544" y1="300" x2="430" y2="120" stroke="url(#bGold)" stroke-width="3.4" opacity=".62" stroke-dasharray="8 8"/>
+  <circle cx="200" cy="120" r="9" fill="none" stroke="url(#bGold)" stroke-width="4"/>
+  <circle cx="430" cy="120" r="9" fill="none" stroke="url(#bGold)" stroke-width="4"/>
+  <!-- 锚点 -->
+  <rect x="84" y="308" width="24" height="24" rx="4" fill="url(#bGold)" filter="url(#bRing)"/>
+  <rect x="532" y="288" width="24" height="24" rx="4" fill="url(#bGold)" filter="url(#bRing)"/>
+
+  <!-- 钢笔工具 -->
+  <path d="M300 250 l64 -64 l44 44 l-64 64 z" fill="#0E1E42" stroke="url(#bGold)" stroke-width="6"
+        stroke-linejoin="round" filter="url(#bRing)"/>
+  <path d="M300 250 l-34 66 l66 -34" fill="none" stroke="url(#bGold)" stroke-width="6" stroke-linejoin="round"/>
+  <circle cx="344" cy="208" r="7" fill="url(#bGold)"/>
+
+  <ellipse cx="320" cy="392" rx="210" ry="18" fill="url(#bGold)" opacity=".18" filter="url(#bRing)"/>
+</svg>

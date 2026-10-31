@@ -1,0 +1,35 @@
+<svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="dGlow" cx="50%" cy="48%" r="54%">
+      <stop offset="0%" stop-color="#2E6BFF" stop-opacity=".46"/>
+      <stop offset="52%" stop-color="#1A3E9E" stop-opacity=".16"/>
+      <stop offset="100%" stop-color="#05080F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="dGold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="640" y2="420">
+      <stop offset="0%" stop-color="#FFF4B8"/><stop offset="38%" stop-color="#FFCE45"/><stop offset="100%" stop-color="#E08A0B"/>
+    </linearGradient>
+    <filter id="dRing" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="320" cy="210" rx="300" ry="192" fill="url(#dGlow)"/>
+
+  <!-- 听诊器：耳件 -->
+  <path d="M206 96 q-26 60 6 108 q34 50 96 52" fill="none" stroke="url(#dGold)" stroke-width="8" stroke-linecap="round" filter="url(#dRing)"/>
+  <path d="M258 92 q16 54 -8 96" fill="none" stroke="url(#dGold)" stroke-width="6" opacity=".7" stroke-linecap="round"/>
+  <circle cx="206" cy="92" r="10" fill="url(#dGold)" filter="url(#dRing)"/>
+  <circle cx="258" cy="88" r="10" fill="url(#dGold)" filter="url(#dRing)"/>
+
+  <!-- 管身 -->
+  <path d="M308 256 q42 40 92 20 q40 -16 40 -58" fill="none" stroke="url(#dGold)" stroke-width="8" stroke-linecap="round" filter="url(#dRing)"/>
+
+  <!-- 胸件 -->
+  <circle cx="440" cy="196" r="46" fill="#0E1E42" stroke="url(#dGold)" stroke-width="8" filter="url(#dRing)"/>
+  <circle cx="440" cy="196" r="20" fill="url(#dGold)" opacity=".85" filter="url(#dRing)"/>
+
+  <!-- 心电波形 -->
+  <path d="M118 300 h58 l16 -40 l22 74 l20 -34 h60" fill="none" stroke="url(#dGold)" stroke-width="6"
+        stroke-linecap="round" stroke-linejoin="round" opacity=".8"/>
+
+  <ellipse cx="320" cy="392" rx="200" ry="18" fill="url(#dGold)" opacity=".18" filter="url(#dRing)"/>
+</svg>
