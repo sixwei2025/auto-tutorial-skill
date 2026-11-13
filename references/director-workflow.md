@@ -13,7 +13,7 @@
 ---
 
 ## 一、评判优先级（Sound > Rhythm > Camera > Directing）
-1. **Sound（声音与配乐）**：默认用 VoiceBox「袁六伟」克隆音色（`4fcdbe0e-b07c-422b-838d-b81f53bbb383`）+ 清晰可听见的正版 BGM（如 `DigitalLemonade.mp3` + Sidechain Ducking + `-15 LUFS`，气口处 BGM `mean_volume` 在 `-22 dB ~ -16 dB`）。
+1. **Sound（声音与配乐）**：默认用 VoiceBox「袁六伟」克隆音色（`4fcdbe0e-b07c-422b-838d-b81f53bbb383`）+ 轻柔托底的正版 BGM（如 `DigitalLemonade.mp3` + 强 Sidechain Ducking + `-15 LUFS`，确保本人原声绝对清晰流畅，气口处 BGM `mean_volume` 控制在 `-30 dB ~ -24 dB`，口播期间压低至 `-34 dB` 以下）。
 2. **Rhythm（剪辑节奏）**：前 `0.01s ~ 0.5s` 必须直击结果或最大反差；不留无意义黑场或平淡过渡；每 2–3 秒有一次视觉信息推进。
 3. **Camera（运镜）**：真实软件界面严禁干放超过 `2.5s` 不交互，讲到核心数字/按钮前 `0.3s` 平滑推近 `1.5x ~ 2.2x` + 红框聚焦，相邻重点平滑平移（Connected Pan）。
 4. **Directing（导演调度）**：一条片子只讲清 **一个核心主张 + 一个结果转折**，结尾呼应开头。
