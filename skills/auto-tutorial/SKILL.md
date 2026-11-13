@@ -3,6 +3,7 @@ name: auto-tutorial
 description: |-
   实操教程与产品演示视频总控
   整合四大软件演示与SOP教程产线：① 全屏真实软件界面推拉运镜教程（主流程：真实实操取证截图→连续推近/平移/拉远→VoiceBox 1.35×配音→底部字幕→MP4）；② 网站演示视频（demo-video-from-url：给网页链接自动生成真实系统光标操作录屏 + 配音 + 字幕推广片）；③ 流程SOP视频（HyperFrames 客户培训与团队入职标准步骤SOP视频）；④ 宣传片批量出片（BrewReel 课程宣传片与讲课视频）。适用于用户要求操作软件做教程、给网站/产品做演示视频、做SOP培训视频。
+version: 1.0.0
 author: 袁六伟 · 台州汇芯（公众号/视频号：袁六伟）
 metadata:
   display_name: 可视化教程视频
