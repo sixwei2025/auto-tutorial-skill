@@ -24,7 +24,7 @@ npx skills add sixwei2025/auto-tutorial-skill
 TV_PROJECT=~/my-video python3 skills/auto-tutorial/scripts/build_all.py --url https://mp.weixin.qq.com/s/xxxx
 ```
 
-[看真实成片效果](#一看真实实操成片效果) · [三类输入全自动流转](#二三类输入--同一套标准化交付物) · [六步工程流水线](#三六步硬闸流水线与核心设计铁律) · [15 秒快通道与矩阵裂变](#四双通道渲染与矩阵号防查重裂变) · [安装配置](#五环境依赖与-3-分钟安装)
+[看真实成片效果](#一看真实实操成片效果) · [三类输入全自动流转](#二三类输入--同一套标准化交付物) · [六步工程流水线](#三六步制作流水线与核心设计原则) · [15 秒快通道与矩阵裂变](#四双通道渲染与矩阵号防查重裂变) · [安装配置](#五环境依赖与-3-分钟安装)
 
 </div>
 
@@ -64,19 +64,19 @@ TV_PROJECT=~/my-video python3 skills/auto-tutorial/scripts/build_all.py --url ht
 
 ---
 
-## 三、六步硬闸流水线与核心设计铁律
+## 三、六步制作流水线与核心设计原则
 
 <p align="center">
   <img src="assets/showcase/pipeline-architecture.jpg" alt="自动化教程视频六步流水线架构图" width="100%" />
 </p>
 
-### 写进代码的 5 条爆款教程铁律
+### 写进代码的 5 条爆款教程原则
 
 1. **黄金 3 秒先甩结果，绝不以「今天教大家安装」开场**：前 0–3 秒直接展示最终跑出来的震撼结果（如「788 条数据，我全程没点一次鼠标」），第 8 秒后再按步骤 1→2→3 拆解。
-2. **小白三要素硬闸**：每一步必须交代清楚 **「点哪里（精确路径）→ 看到什么反馈 → 完了长什么样」**，并单独留出一段展示**「具体怎么给 AI 下指令的原话」**。
+2. **小白上手三要素**：每一步必须交代清楚 **「点哪里（精确路径）→ 看到什么反馈 → 完了长什么样」**，并单独留出一段展示**「具体怎么给 AI 下指令的原话」**。
 3. **全景截图 + 红框编号引导（不靠盲目放大）**：信息密集的界面保持全景位置感，通过 `annotations` 比例坐标自动绘制 `#C7352D` 红框 + 外浮圆标 `①②③` + 指示箭头；隐私侧栏自动局部高斯模糊。
-4. **全程恒定 1.5x 语速（抖音主流节奏）**：通过 `ffmpeg atempo=1.5` 变速不变调，落音后自动测算音节流速（锁定 `5.0–5.6 音节/秒`），思考留白靠 `lead/tail` 气口调节，绝不降速拖泥带水。
-5. **封面四件套满出血硬闸**：深空蓝黑底 + 顶部红胶囊（`WorkBuddy实操`）+ 两行思源黑体 900 大字（白+金）+ 11 款内置纯 SVG 矢量图形（`orbit / nodes / grid / play / people / ledger / scale...`），四边零白边。
+4. **全程恒定 1.5x 语速（抖音主流节奏）**：通过 `ffmpeg atempo=1.5` 变速不变调，落音后自动测算音节流速（稳定在 `5.0–5.6 音节/秒`），思考留白靠 `lead/tail` 气口调节，绝不降速拖泥带水。
+5. **封面四件套满出血设计**：深空蓝黑底 + 顶部红胶囊（`WorkBuddy实操`）+ 两行思源黑体 900 大字（白+金）+ 11 款内置纯 SVG 矢量图形（`orbit / nodes / grid / play / people / ledger / scale...`），四边零白边。
 
 ---
 
@@ -156,17 +156,17 @@ auto-tutorial-skill/
 
 | 仓库 | 领域 | 核心能力 |
 | :--- | :--- | :--- |
-| [**workbuddy-wechat-autopilot**](https://github.com/sixwei2025/workbuddy-wechat-autopilot) | 公众号全链路 | 九步硬闸总控：选题→写稿→真实截图→6套封面→6套排版→三重校验→草稿箱 |
-| [**wechat-cover-skill**](https://github.com/sixwei2025/wechat-cover-skill) | 公众号视觉 | 封面渲染引擎（6套高客单价杂志风 + 黑红金 v2b + DOM 几何硬闸） |
-| [**gzh-million-layout-skill**](https://github.com/sixwei2025/gzh-million-layout-skill) | 公众号排版 | 汇芯红 `#C8102E` 六套 100% 内联 CSS 骨架 + 乱码硬闸 + 配图皮肤 |
-| [**ai-tool-review-wechat-skill**](https://github.com/sixwei2025/ai-tool-review-wechat-skill) | 公众号评测 | AI 工具真跑评测工作流（5项一票否决 + 说人话硬闸 + 证据表） |
+| [**workbuddy-wechat-autopilot**](https://github.com/sixwei2025/workbuddy-wechat-autopilot) | 公众号全链路 | 九步全自动总控：选题→写稿→真实截图→6套封面→6套排版→三重自动质检→草稿箱 |
+| [**wechat-cover-skill**](https://github.com/sixwei2025/wechat-cover-skill) | 公众号视觉 | 封面渲染引擎（6套高客单价杂志风 + 黑红金 v2b + 防压脸自动校验） |
+| [**gzh-million-layout-skill**](https://github.com/sixwei2025/gzh-million-layout-skill) | 公众号排版 | 汇芯红 `#C8102E` 六套 100% 内联 CSS 骨架 + 零乱码检查 + 配图皮肤 |
+| [**ai-tool-review-wechat-skill**](https://github.com/sixwei2025/ai-tool-review-wechat-skill) | 公众号评测 | AI 工具真跑评测工作流（2.0 全自动压测 + 去碎句语感质检 + 六套骨架装配） |
 | [**hit-title-expert-skill**](https://github.com/sixwei2025/hit-title-expert-skill) | 爆款标题 | 一次直出 10 条 14–22 字高浓缩狠标题（5大公式 × 5类钩子词） |
 | [**auto-tutorial-skill**](https://github.com/sixwei2025/auto-tutorial-skill) | 短视频工程 | 链接/网页/真机截图 → 3:4 封面 + 1.5x 配音 + 红框标注教程视频 |
 | [**talking-head-video-skill**](https://github.com/sixwei2025/talking-head-video-skill) | 短视频工程 | 1080×1920 竖屏真人口播短视频（ASR 错字校对 + 逐字卡拉OK字幕 + 6项QC） |
 | [**3d-map-video-skill**](https://github.com/sixwei2025/3d-map-video-skill) | 短视频工程 | MapLibre 3D 地形 + WarFX 战争特效（粒子行军/点阵兵力/震屏混音） |
 | [**psych-kepu-video-skill**](https://github.com/sixwei2025/psych-kepu-video-skill) | 短视频工程 | Remotion + JSON 驱动的 15–30s 深色扁平动画心理科普短视频 |
 | [**dark-infographic-video-skill**](https://github.com/sixwei2025/dark-infographic-video-skill) | 短视频工程 | 纯 Python + FFmpeg 暗黑流光数据可视化科普片（含 v2 手机外放配乐） |
-| [**local-video-hub**](https://github.com/sixwei2025/local-video-hub) | AI 团队基建 | 视频版本地 Obsidian：多 AI 员工统一交片、去重门闸与四态流转云台 |
+| [**local-video-hub**](https://github.com/sixwei2025/local-video-hub) | AI 团队基建 | 视频版本地 Obsidian：多 AI 员工统一交片、撞题查重与四态流转云台 |
 | [**yuanliuwei-ai-skills**](https://github.com/sixwei2025/yuanliuwei-ai-skills) | 一人公司方法 | PACT 72h 需求验证模型与一人 AI 公司 10 大业务决策模块 |
 | [**book-skill**](https://github.com/sixwei2025/book-skill) | 知识工程 | 上传任意书籍 PDF → 自动提炼方法论生成 `.skill` + 公众号导流文案 |
 | [**huangdi-skill**](https://github.com/sixwei2025/huangdi-skill) | 认知操作系统 | 中国历史八大皇帝（秦始皇/汉武帝/唐太宗等）一手史料认知框架蒸馏 |
