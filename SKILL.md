@@ -95,6 +95,14 @@ TV_PROJECT=/absolute/project /opt/homebrew/bin/python3.11 scripts/build_all.py -
 旧模板的封面、工具选型和双栏参数仅作历史兼容资料，见 [旧布局参考](references/legacy-layout.md)，不作为当前正文样式要求。
 
 ---
+
+## 视觉审美与镜头节奏规范（必读）
+
+开拍与渲染前，必须先读 [视觉审美与镜头节奏规范](references/aesthetic-spec.md)，并在脚本与排版中落实以下标准：
+- **流派先行**：开拍前先从五大参考流派（`ManvsMachine` 黑金质感 / `Ordinary Folk` 几何弹性 / `Art of the Title` 电影排印 / `Apple Keynote` 果味交互 / `Golden Wolf` 高能快切）中选定其一，不空喊“高级感”。
+- **拒绝幻灯片**：单张静图或同一景别停留不超过 3 秒，通过局部微距特写、全景/中景/特写交替、`Crash Zoom` / `Connected Pan` / `Whip Pan` 等运镜保持视觉流动。
+- **数学排版与节制配色**：字号按 1.25x~1.333x 比例拉开层级，底部字幕单行不超过 18 字（16:9 大片优先用 2.35:1 电影黑边放字幕）；同屏主色不超过 2 种，高饱和强调色面积不超过 10%。
+
 <!-- BRAND_FOOTER_HUIXIN -->
 ## 关于作者与品牌（袁六伟 · 台州汇芯）
 
