@@ -5,6 +5,13 @@
 
 ---
 
+## 零、开拍前第 0 步：先从本地视频中心风格库（243 套）挑 3 个方案给用户拍板
+每次接到新的视频需求时，**先查 `~/video-hub/styles.json`（或 `http://127.0.0.1:8765/api/styles`）**：
+1. 按选题体裁（产品演示 `product_demo` / 99 电影风 `opuscar` / Remotion 动效 `remotion_scenes` / 数据图表 `rve_dataviz` / 3B1B 原理 `manim_motion` / 口播 / 故事 / Vibe 等）筛出 **3 个最匹配的候选风格**（附 `id`、中文名、画面气质与推荐理由，标出 1 个首选推荐）；
+2. 用简短选项让用户选定风格（或确认「按推荐」），再进入下方 `TREATMENT.md` 与 `Styleframe` 流程，避免盲做返工。
+
+---
+
 ## 一、评判优先级（Sound > Rhythm > Camera > Directing）
 1. **Sound（声音与配乐）**：默认用 VoiceBox「袁六伟」克隆音色（`4fcdbe0e-b07c-422b-838d-b81f53bbb383`）+ 清晰可听见的正版 BGM（如 `DigitalLemonade.mp3` + Sidechain Ducking + `-15 LUFS`，气口处 BGM `mean_volume` 在 `-22 dB ~ -16 dB`）。
 2. **Rhythm（剪辑节奏）**：前 `0.01s ~ 0.5s` 必须直击结果或最大反差；不留无意义黑场或平淡过渡；每 2–3 秒有一次视觉信息推进。
