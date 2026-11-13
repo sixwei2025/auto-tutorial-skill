@@ -70,7 +70,7 @@ metadata:
 
 ## 制作入口
 
-先确定能做成的一件事和简短提纲，真实操作、核验材料后再定稿旁白。确认Python解释器和本机依赖后，使用现有制作阶段，避免另造一条绕开证据和时间轴的临时流程。
+先确定能做成的一件事和简短提纲，真实操作、核验材料后再定稿旁白。开拍前按 [director-workflow.md](references/director-workflow.md) 写 `TREATMENT.md`（3 个候选开头钩子 + 至少 1 处 Native Move 原生转场）并先审 3 张 `Styleframe` 样张，再全片导出。确认Python解释器和本机依赖后，使用现有制作阶段，避免另造一条绕开证据和时间轴的临时流程。
 
 ```bash
 TV_PROJECT=/absolute/project /opt/homebrew/bin/python3.11 scripts/build_all.py --only cover
