@@ -15,44 +15,91 @@
 3. 支持 --theme 指定单套或 all 全部六套输出
 """
 import argparse
+import os
+import shutil
 import subprocess
+import tempfile
 from pathlib import Path
 from typing import Optional
 from PIL import Image
 
-CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-DEFAULT_FONT = "/Users/yuanliuwei/.agents/skills/wechat-autopilot/skills/wechat-cover-skill/assets/fonts/NotoSansCJKsc-Black.otf"
-DEFAULT_PORTRAIT = "/Users/yuanliuwei/.agents/skills/wechat-autopilot/skills/wechat-cover-skill/assets/owner_cutout_hd.png"
+
+def _find_chrome() -> str:
+    env_c = os.environ.get("CHROME_BIN", "").strip()
+    if env_c and Path(env_c).exists():
+        return env_c
+    for cmd in ("google-chrome", "chrome", "chromium", "chromium-browser", "msedge"):
+        hit = shutil.which(cmd)
+        if hit:
+            return hit
+    pf = os.environ.get("ProgramFiles", r"C:\Program Files")
+    pf86 = os.environ.get("ProgramFiles(x86)", r"C:\Program Files (x86)")
+    lad = os.environ.get("LOCALAPPDATA", "")
+    for cand in (
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
+        os.path.join(pf, "Google", "Chrome", "Application", "chrome.exe"),
+        os.path.join(pf86, "Google", "Chrome", "Application", "chrome.exe"),
+        os.path.join(lad, "Google", "Chrome", "Application", "chrome.exe") if lad else "",
+        os.path.join(pf, "Microsoft", "Edge", "Application", "msedge.exe"),
+        "/usr/bin/google-chrome",
+        "/usr/bin/chromium",
+    ):
+        if cand and Path(cand).exists():
+            return cand
+    return "google-chrome"
+
+
+def _find_default_font() -> str:
+    h = Path.home()
+    for p in (
+        h / ".agents/skills/wechat-autopilot/skills/wechat-cover-skill/assets/fonts/NotoSansCJKsc-Black.otf",
+        h / ".workbuddy/skills/wechat-autopilot/skills/wechat-cover-skill/assets/fonts/NotoSansCJKsc-Black.otf",
+        h / ".agents/skills/huashu-creative-suite/assets/fonts/NotoSansSC-VF.ttf",
+        Path(r"C:\Windows\Fonts\msyhbd.ttc"),
+        Path(r"C:\Windows\Fonts\simhei.ttf"),
+        Path("/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc"),
+    ):
+        if p.exists():
+            return str(p)
+    return ""
+
+
+CHROME_BIN = _find_chrome()
+DEFAULT_FONT = _find_default_font()
+DEFAULT_PORTRAIT = str(Path.home() / ".agents/skills/wechat-autopilot/skills/wechat-cover-skill/assets/owner_cutout_hd.png")
 FALLBACK_PORTRAITS = [
-    "/Users/yuanliuwei/汇芯公众号自动化宣传片/film/assets/shots/owner_cutout_hd.png",
-    "/Users/yuanliuwei/Workbuddy/github-skills-14/ai-tool-review-wechat-skill/drafts/2026-11-12-local-video-hub/assets/portrait_lit.png",
+    str(Path.home() / ".agents/skills/talking-head-video/assets/owner_cutout_hd.png"),
+    str(Path.home() / ".agents/skills/huashu-creative-suite/assets/owner_cutout_hd.png"),
+    str(Path.home() / "汇芯公众号自动化宣传片/film/assets/shots/owner_cutout_hd.png"),
 ]
 
 
+def _file_uri(path_str: str) -> str:
+    p = Path(path_str)
+    return p.resolve().as_uri() if p.exists() else path_str
+
+
 def resolve_portrait(custom_path: Optional[str]) -> str:
-    if custom_path and Path(custom_path).exists():
-        return str(Path(custom_path).resolve())
-    for p in FALLBACK_PORTRAITS + [DEFAULT_PORTRAIT]:
-        if Path(p).exists():
+    env_p = os.environ.get("HUIXIN_PORTRAIT", "").strip()
+    for p in [custom_path, env_p, *FALLBACK_PORTRAITS, DEFAULT_PORTRAIT]:
+        if p and Path(p).exists():
             return str(Path(p).resolve())
-    raise FileNotFoundError("未找到高清人像文件，请通过 --portrait 指定")
+    raise FileNotFoundError("未找到高清人像文件，请通过 --portrait 或环境变量 HUIXIN_PORTRAIT 指定")
 
 
 def common_head(font_path: str) -> str:
+    font_face = f'@font-face {{ font-family: "CoverBlack"; src: url("{_file_uri(font_path)}"); font-weight: 900; }}' if font_path and Path(font_path).exists() else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <style>
-  @font-face {{
-    font-family: "CoverBlack";
-    src: url("file://{font_path}");
-    font-weight: 900;
-  }}
+  {font_face}
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   html, body {{
     width: 1080px; height: 1440px; overflow: hidden;
-    font-family: "CoverBlack", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    font-family: "CoverBlack", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
   }}
 </style>
 """
@@ -143,7 +190,7 @@ def build_swiss(cfg: dict) -> str:
     <div class="data-pill">{cfg['stat1']}</div>
     <div class="data-pill">{cfg['author']}</div>
   </div>
-  <div class="portrait"><img src="file://{cfg['portrait']}"></div>
+  <div class="portrait"><img src="{_file_uri(cfg['portrait'])}"></div>
   <div class="footer">
     <span>{cfg['repo_tag']}</span>
     <span>{cfg['channel']}</span>
@@ -234,7 +281,7 @@ def build_magazine(cfg: dict) -> str:
     <div class="c-num">{cfg['stat2_val']}</div>
     <div class="c-lbl">{cfg['stat2_lbl']}</div>
   </div>
-  <div class="portrait"><img src="file://{cfg['portrait']}"></div>
+  <div class="portrait"><img src="{_file_uri(cfg['portrait'])}"></div>
   <div class="bottom-fade"></div>
   <div class="footer-bar">
     <span>{cfg['author']}（学员 7000+ · 服务企业 100+）</span>
@@ -317,7 +364,7 @@ def build_bento(cfg: dict) -> str:
       <div class="stat-card"><div class="s-val">{cfg['stat3_val']}</div><div class="s-lbl">{cfg['stat3_lbl']}</div></div>
     </div>
     <div class="portrait-card">
-      <img src="file://{cfg['portrait']}">
+      <img src="{_file_uri(cfg['portrait'])}">
       <div class="name-badge">{cfg['author']}</div>
     </div>
   </div>
@@ -372,7 +419,7 @@ def build_split(cfg: dict) -> str:
     <div class="headline">{cfg['line1']}<br><span class="accent">{cfg['line2']}</span></div>
   </div>
   <div class="bottom-half">
-    <div class="portrait"><img src="file://{cfg['portrait']}"></div>
+    <div class="portrait"><img src="{_file_uri(cfg['portrait'])}"></div>
     <div class="quote-strip">
       <span>{cfg['author']}</span>
       <span class="gold">{cfg['stat1']}</span>
@@ -441,7 +488,7 @@ def build_brutalist(cfg: dict) -> str:
   </div>
   <div class="sticker">{cfg['stat1']}</div>
   <div class="bg-stripe"></div>
-  <div class="portrait"><img src="file://{cfg['portrait']}"></div>
+  <div class="portrait"><img src="{_file_uri(cfg['portrait'])}"></div>
   <div class="footer">
     <span>{cfg['author']}</span>
     <span>学员 7000+ · 免费开源</span>
@@ -489,7 +536,7 @@ def build_gallery(cfg: dict) -> str:
     <div class="title">{cfg['line1']}<br><span class="accent">{cfg['line2']}</span></div>
     <div class="sub-rule"></div>
     <div class="sub-text">{cfg['stat1']}</div>
-    <div class="inner-arch"><img src="file://{cfg['portrait']}"></div>
+    <div class="inner-arch"><img src="{_file_uri(cfg['portrait'])}"></div>
     <div class="gallery-plaque">{cfg['author']}（GitHub 开源）</div>
   </div>
 </div>
@@ -511,18 +558,19 @@ def render_one(file_stem: str, html: str, out_dir: Path, width: int = 1080, heig
     png_path = out_dir / f"{file_stem}.png"
     jpg_path = out_dir / f"{file_stem}.jpg"
     html_path.write_text(html, encoding="utf-8")
+    profile_dir = Path(tempfile.gettempdir()) / "chrome-headless-profile"
     subprocess.run(
         [
             CHROME_BIN,
             "--headless=new",
             "--disable-gpu",
             "--no-sandbox",
-            "--user-data-dir=/tmp/chrome-headless-profile",
+            f"--user-data-dir={profile_dir}",
             f"--window-size={width},{height}",
             "--force-device-scale-factor=1",
             "--hide-scrollbars",
             f"--screenshot={png_path}",
-            f"file://{html_path}",
+            html_path.resolve().as_uri(),
         ],
         check=True,
         stdout=subprocess.DEVNULL,
@@ -546,21 +594,18 @@ THEMES_16X9 = {
 
 def build_16x9(theme_key: str, cfg: dict) -> str:
     st = THEMES_16X9[theme_key]
+    font_face = f'@font-face {{ font-family: "CoverBlack"; src: url("{_file_uri(cfg["font"])}"); font-weight: 900; }}' if cfg.get("font") and Path(cfg["font"]).exists() else ""
     return f"""<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <style>
-  @font-face {{
-    font-family: "CoverBlack";
-    src: url("file://{cfg['font']}");
-    font-weight: 900;
-  }}
+  {font_face}
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   html, body {{
     width: 1920px; height: 1080px; overflow: hidden;
     background: {st['bg']}; color: {st['fg']};
-    font-family: "CoverBlack", "PingFang SC", "Hiragino Sans GB", sans-serif;
+    font-family: "CoverBlack", "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
   }}
   .canvas {{ position: relative; width: 1920px; height: 1080px; overflow: hidden; }}
   .grid-bg {{
@@ -606,7 +651,7 @@ def build_16x9(theme_key: str, cfg: dict) -> str:
     <div class="meta">{cfg['author']} · {cfg['stat1']}</div>
     <div class="badge-row">{cfg['channel']}</div>
   </div>
-  <div class="portrait"><img src="file://{cfg['portrait']}"></div>
+  <div class="portrait"><img src="{_file_uri(cfg['portrait'])}"></div>
 </div>
 </body></html>"""
 
@@ -631,7 +676,7 @@ def main():
     p.add_argument("--repo-tag", default="wechat-autopilot · 开源系列")
     p.add_argument("--portrait", default=None)
     p.add_argument("--font", default=DEFAULT_FONT)
-    p.add_argument("--out-dir", default="/Users/yuanliuwei/汇芯公众号自动化宣传片/out/cover-layouts")
+    p.add_argument("--out-dir", default="./cover-layouts")
     p.add_argument("--ratio", default="3:4", choices=["3:4", "16:9", "both"], help="输出画幅：3:4 独立封面 / 16:9 横屏首帧 / both")
     p.add_argument("--grid", action="store_true", help="生成 3x2 对比拼图")
     args = p.parse_args()

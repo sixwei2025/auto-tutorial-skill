@@ -1,4 +1,4 @@
-#!/opt/homebrew/bin/python3.11
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """汇芯 · 高级感视频封面双画幅渲染引擎 (render_video_cover.py)
 
@@ -1088,7 +1088,7 @@ DEMO_BRIEFS = [
         brand="Skills Hub",
         title_lines=["统管全机技能", "告别散乱与重复"],
         subtitle="536 项技能去重精选 · 4 大 Agent 工具一键同步",
-        shot="/Users/yuanliuwei/Workbuddy/github-skills-14/huixin-skills-manager/assets/showcase/01-real-interface.png",
+        shot=str(Path.home() / "Workbuddy/github-skills-14/huixin-skills-manager/assets/showcase/01-real-interface.png"),
         strip_left="袁六伟 · 台州汇芯",
         strip_right="REAL INTERFACE",
     ),

@@ -6,7 +6,9 @@
 """
 import argparse
 import os
+import shutil
 import subprocess
+import sys
 import tempfile
 from pathlib import Path
 
@@ -145,6 +147,13 @@ def main():
 
     if not args.out_mp4 and not args.out_gif:
         p.error("请至少指定 --out-mp4 或 --out-gif")
+    if sys.platform != "darwin":
+        raise SystemExit(
+            "record_app_window.py 的 WindowID 隔离录屏依赖 macOS Swift / CoreGraphics / screencapture。\n"
+            "Windows / Linux 请改用：\n"
+            "  1) 网页端操作：Playwright 无头/有头录屏（全平台原生支持）\n"
+            "  2) 桌面软件操作：auto-tutorial/scripts/record_screen.py 或 ffmpeg gdigrab / OBS 录屏"
+        )
 
     with tempfile.TemporaryDirectory() as td:
         td_p = Path(td)
