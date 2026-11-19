@@ -22,7 +22,7 @@ import html
 import os
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageEnhance, ImageFilter, ImageOps
 from playwright.sync_api import sync_playwright
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -987,8 +987,43 @@ def render_preset(preset: str, out_dir: Path, args: argparse.Namespace) -> tuple
     return jpg_3x4, png_16x9
 
 
+def package_ai_cover(src_path: str | Path, out_dir: Path, name: str = "watercolor-ai") -> tuple[Path, Path]:
+    """将 AI 生成的 3:4 水彩手绘完整封面封装为标准 1080x1440 竖版封面 + 1920x1080 暖色水彩延展首帧。"""
+    src = Path(src_path)
+    if not src.exists():
+        raise FileNotFoundError(f"AI cover image not found: {src}")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    png_3x4 = out_dir / f"{name}_3x4.png"
+    jpg_3x4 = out_dir / f"{name}_3x4.jpg"
+    png_16x9 = out_dir / f"{name}_16x9_opening.png"
+
+    im = Image.open(src).convert("RGB")
+    im_3x4 = ImageOps.fit(im, (1080, 1440), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+    im_3x4.save(png_3x4)
+    im_3x4.save(jpg_3x4, quality=94)
+
+    # 16:9 opening frame with harmonious watercolor-blurred ambient sides + central 810x1080 safe zone
+    bg = ImageOps.fit(im_3x4, (1920, 1080), method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+    bg = bg.filter(ImageFilter.GaussianBlur(radius=42))
+    bg = ImageEnhance.Brightness(bg).enhance(0.92)
+
+    center_card = im_3x4.resize((810, 1080), Image.Resampling.LANCZOS)
+    x0 = (1920 - 810) // 2
+    # Subtle soft shadow behind central 3:4 safe zone
+    shadow = Image.new("RGBA", (1920, 1080), (0, 0, 0, 0))
+    shadow_box = Image.new("RGBA", (834, 1080), (30, 24, 18, 70))
+    shadow.paste(shadow_box, (x0 - 12, 0))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(radius=18))
+    canvas = Image.alpha_composite(bg.convert("RGBA"), shadow).convert("RGB")
+    canvas.paste(center_card, (x0, 0))
+    canvas.save(png_16x9)
+    return jpg_3x4, png_16x9
+
+
 def main() -> None:
-    parser = argparse.ArgumentParser(description="汇芯视频封面工坊 · 12 套赛道适配封面生成器（含无露脸视觉与人像）")
+    parser = argparse.ArgumentParser(description="汇芯视频封面工坊 · 赛道适配封面与 AI 水彩封面封装器")
+    parser.add_argument("--package-cover", default="", help="直接封装 AI 生成的 3:4 水彩完整封面为标准双画幅 (3:4 + 16:9首帧)")
+    parser.add_argument("--package-name", default="watercolor-ai", help="--package-cover 输出文件前缀")
     parser.add_argument("--preset", choices=PRESETS, default="")
     parser.add_argument("--video-type", choices=list(VIDEO_TYPE_MAP.keys()), default="", help="按视频赛道自动选型")
     parser.add_argument("--variant", type=int, default=0, help="同赛道下的第 N 套封面方案 (0, 1, 2, ...)")
@@ -1008,6 +1043,11 @@ def main() -> None:
     args = parser.parse_args()
 
     out_dir = Path(args.out)
+    if args.package_cover:
+        jpg, opening = package_ai_cover(args.package_cover, out_dir, name=args.package_name)
+        print(f"OK [package:{args.package_name}] -> {jpg} | {opening}")
+        return
+
     if args.render_all:
         targets = VIDEO_TYPE_MAP[args.video_type] if args.video_type else PRESETS
     elif args.preset:
